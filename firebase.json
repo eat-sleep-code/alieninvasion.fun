@@ -1,0 +1,47 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+			{
+				"source": "**",
+				"headers": [
+					{
+						"key": "X-Frame-Options",
+						"value": "sameorigin"
+					},
+					{
+						"key": "X-XSS-Protection",
+						"value": "1; mode=block"
+					},
+					{
+						"key": "X-Content-Type-Options",
+						"value": "nosniff"
+					},
+					{
+						"key": "Content-Security-Policy",
+						"value": "default-src https:; script-src https:; style-src https:"
+					},
+					{
+						"key": "Referrer-Policy",
+						"value": "no-referrer-when-downgrade"
+					},
+					{
+						"key": "Feature-Policy",
+						"value": "camera 'none'; magnetometer 'none'; microphone 'none'; usb 'none'"
+					}
+        ]
+      }
+    ]
+  }
+}

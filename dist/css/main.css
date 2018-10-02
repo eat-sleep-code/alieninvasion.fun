@@ -1,0 +1,18 @@
+body
+{
+    background: rgba(0, 0, 0, 1.0);
+    background-image: url('/images/background.png');
+	overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.game-row
+{
+    width: 100%;
+}
+
+.game-container
+{
+	text-align: center;
+}

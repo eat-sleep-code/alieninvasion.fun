@@ -3,8 +3,7 @@ body
     background: rgba(0, 0, 0, 1.0);
     background-image: url('/images/background.png');
 	overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
-    
+    font-family: Verdana, sans-serif;
 }
 
 .game-row

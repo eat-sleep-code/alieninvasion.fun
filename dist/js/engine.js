@@ -176,7 +176,7 @@ var TitleScreen = function TitleScreen(title,subtitle,callback) {
     var measure = ctx.measureText(title);  
     ctx.fillText(title,Game.width/2 - measure.width/2,Game.height/2);
 
-    ctx.font = "bold 20px 'Open Sans'";
+    ctx.font = "bold 20px 'Verdana'";
     var measure2 = ctx.measureText(subtitle);
     ctx.fillText(subtitle,Game.width/2 - measure2.width/2,Game.height/2 + 40);
   };
@@ -196,11 +196,11 @@ var SplashScreen = function SplashScreen(imagePath, textline1, textline2, callba
 		splashImage.src = imagePath;
 		ctx.drawImage(splashImage, Game.width / 2 - 420 / 2, Game.height / 2 - 150, 420, 263);
 
-		ctx.font = "normal 18px 'Open Sans'";
+		ctx.font = "normal 18px 'Verdana'";
 		var measure1 = ctx.measureText(textline1);
 		ctx.fillText(textline1, Game.width / 2 - measure1.width / 2, Game.height / 2 + 144);
 
-		ctx.font = "normal 18px 'Open Sans'";
+		ctx.font = "normal 18px 'Verdana'";
 		var measure2 = ctx.measureText(textline2);
 		ctx.fillText(textline2, Game.width / 2 - measure2.width / 2, Game.height / 2 + 168);
 	};
@@ -391,7 +391,7 @@ var TouchControls = function() {
 
     ctx.fillStyle = "#FFF";
     ctx.globalAlpha = 1.0;
-    ctx.font = "bold " + (3*unitWidth/4) + "px 'Open Sans'";
+    ctx.font = "bold " + (3*unitWidth/4) + "px 'Verdana'";
 
     var txtSize = ctx.measureText(txt);
 
@@ -457,7 +457,7 @@ var GamePoints = function() {
 	var pointsLength = 8;
 	this.draw = function(ctx) {
 		ctx.save();
-		ctx.font = "bold 18px 'Open Sans'";
+		ctx.font = "bold 18px 'Verdana'";
 		ctx.fillStyle = "#FFFFFF";
 		var txt = "" + Game.points;
 		var i = pointsLength - txt.length, zeros = "";
@@ -475,7 +475,7 @@ var GameHealth = function () {
 	var healthLength = 4;
 	this.draw = function (ctx) {
 		ctx.save();
-		ctx.font = "bold 18px 'Open Sans'";
+		ctx.font = "bold 18px 'Verdana'";
 		if (Game.playerHealth > Game.defaultPlayerHealth) {
 			ctx.fillStyle = "#00A9E0";
 		}

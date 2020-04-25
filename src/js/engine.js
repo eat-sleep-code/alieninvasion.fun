@@ -404,6 +404,7 @@ var TouchControls = function() {
       touch = e.targetTouches[i];
       x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
       if(x < unitWidth) {
+        console.log('Left click');
         Game.keys['left'] = true;
       } 
       if(x > unitWidth && x < 2*unitWidth) {

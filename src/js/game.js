@@ -296,7 +296,7 @@ var PlayerShip = function () {
 };
 
 PlayerShip.boost = function () {
-
+	console.log("Boost!");
 	if (healthAlreadyBoosted == false) {
 		audio.power.play();
 		playerHealth = boostedPlayerHealth;

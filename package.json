@@ -1,0 +1,41 @@
+{
+  "name": "invaders",
+  "version": "2020.4.24",
+  "description": "Cyber Space Invaders",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eat-sleep-code/invaders.eat-sleep-code.com.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-minify": "^0.5.1",
+    "grunt": "^1.1.0",
+    "grunt-babel": "^8.0.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-git-deploy": "^0.3.1",
+    "jquery": "^3.5.0",
+    "js-obfuscator": "^0.1.4"
+  },
+  "keywords": [
+    "game",
+    "javascript",
+    "cyber",
+    "space",
+    "invaders"
+  ],
+  "author": " <eat-sleep-code />",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eat-sleep-code/invaders.eat-sleep-code.com/issues"
+  },
+  "homepage": "https://github.com/eat-sleep-code/invaders.eat-sleep-code.com#readme"
+}

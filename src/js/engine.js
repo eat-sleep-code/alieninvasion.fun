@@ -3,16 +3,14 @@
     var vendors = ['ms', 'moz', 'webkit', 'o'];
     for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
         window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame = 
-          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
     }
  
     if (!window.requestAnimationFrame)
         window.requestAnimationFrame = function(callback, element) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
-              timeToCall);
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
             lastTime = currTime + timeToCall;
             return id;
         };
@@ -30,6 +28,12 @@ var Game = new function() {
   // Game Initialization
   this.initialize = function(canvasElementId,sprite_data,callback) {
     this.canvas = document.getElementById(canvasElementId);
+    //console.log(this.canvas);
+    var width = $(this.canvas).width();
+    var height = $(this.canvas).height();
+    
+    this.canvas.width = width;
+    this.canvas.height = height;
 
     this.playerOffset = 10;
     this.canvasMultiplier= 1;
@@ -37,6 +41,8 @@ var Game = new function() {
 
     this.width = this.canvas.width;
     this.height= this.canvas.height;
+
+    //console.log(this.width, this.height);
 
     this.ctx = this.canvas.getContext && this.canvas.getContext('2d');
     if(!this.ctx) { return alert("Please upgrade your browser to play"); }
@@ -127,7 +133,7 @@ var Game = new function() {
     } else {
       this.canvas.width = w;
       this.canvas.height = h;
-    }
+     }
 
     this.canvas.style.position='absolute';
     this.canvas.style.left="0px";
@@ -145,7 +151,7 @@ var SpriteSheet = new function() {
     this.map = spriteData;
     this.image = new Image();
     this.image.onload = callback;
-    this.image.src = '/games/game-assets/SecurityAwareness/images/sprites.png';
+    this.image.src = 'images/sprites.png';
   };
 
   this.draw = function(ctx,sprite,x,y,frame) {
@@ -172,7 +178,7 @@ var TitleScreen = function TitleScreen(title,subtitle,callback) {
   this.draw = function(ctx) {
     ctx.fillStyle = "#FFFFFF";
 
-    ctx.font = "bold 40px 'SF Collegiate'";
+    ctx.font = "bold 40px 'Impact, Charcoal, sans-serif'";
     var measure = ctx.measureText(title);  
     ctx.fillText(title,Game.width/2 - measure.width/2,Game.height/2);
 

@@ -120,14 +120,14 @@ var startGame = function () {
 	}
 	//console.log($(window).width());
 	if ($(window).width() <= 480) {
-		Game.setBoard(3, new SplashScreen('/images/splash.png',
+		Game.setBoard(3, new SplashScreen('images/splash.png',
 									"",
 									"",
 								playGame));
 	}
 	else
 	{
-		Game.setBoard(3, new SplashScreen('/images/splash.png',
+		Game.setBoard(3, new SplashScreen('images/splash.png',
 									"press the spacebar to battle the threats",
 									"press the left and right arrow keys to move",
 								playGame));

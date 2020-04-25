@@ -208,32 +208,14 @@ var winGame = function () {
 			return false;
 		}
 	});
-	setTimeout(function () {
-		$('#Score').val(Game.points);
-		//console.log("Score: " + $('#Score').val());
-		$('#Game').submit();
-	}, 2500);
+	console.info('WIN: ' + Game.points);
 };
 
 var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	audio.lose.play();
-	if ($('#Score').val() > 0) {
-		Game.setBoard(3, new TitleScreen("GAME OVER!", "", playGame));
-		$(document).keydown(function (e) {
-			if (e.which == 32) {
-				return false;
-			}
-		});
-		setTimeout(function () {
-			$('#Score').val(Game.points);
-			//console.log("Score: " + $('#Score').val());
-			$('#Game').submit();
-		}, 2500);
-	}
-	else {
-		Game.setBoard(3, new TitleScreen("GAME OVER", "You have been defeated!", playGame));
-	}
+	Game.setBoard(3, new TitleScreen("GAME OVER", "You have been defeated!", playGame));
+	console.info('LOSS: ' + Game.points);
 };
 
 

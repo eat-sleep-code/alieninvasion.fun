@@ -114,6 +114,7 @@ var Game = new function() {
       w = window.innerWidth; h = window.innerHeight;
     }
     this.canvas.style.width = "100vw";
+    this.canvas.style.height = "100vh";
   };
 
 };
@@ -366,7 +367,7 @@ var TouchControls = function() {
   var blockWidth = unitWidth-gutterWidth;
 
   this.drawSquare = function(ctx,x,y,txt,on) {
-    ctx.globalAlpha = on ? 0.1 : 0.6;
+    ctx.globalAlpha = on ? 0.1 : 0.5;
     ctx.fillStyle =  "#CCC";
     ctx.fillRect(x,y,blockWidth,blockWidth);
 

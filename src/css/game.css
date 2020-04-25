@@ -26,3 +26,11 @@ body
     margin: auto;
     width: calc(100vh * 0.66);
 }
+
+@media (max-width: 640px) 
+{
+    .game-container > canvas
+    {
+        width: 100vw;
+    }
+}

@@ -96,16 +96,16 @@ var startGame = function () {
 	}
 	//console.log($(window).width());
 	if ($(window).width() <= 576) {
-		Game.setBoard(3, new SplashScreen('images/splash.png',
+		Game.setBoard(3, new SplashScreen('images/splash.svg',
 									"",
 									"",
 								playGame));
 	}
 	else
 	{
-		Game.setBoard(3, new SplashScreen('images/splash.png',
-									"press spacebar to fire",
-									"left and right keys to move",
+		Game.setBoard(3, new SplashScreen('images/splash-mobile.svg',
+									"",
+									"",
 								playGame));
 	}
 };
@@ -179,8 +179,8 @@ var playGame = function () {
 };
 
 var winGame = function () {
-	Game.setBoard(3, new TitleScreen("AWESOME!", "", playGame));
 	audio.win.play();
+	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32) {
 			return false;
@@ -193,7 +193,7 @@ var winGame = function () {
 var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	audio.lose.play();
-	Game.setBoard(3, new TitleScreen("GAME OVER", "You have been defeated!", playGame));
+	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
 	console.info('LOSS: ' + Game.points);
 };
 

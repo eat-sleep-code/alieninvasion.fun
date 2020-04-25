@@ -10,8 +10,6 @@ var healthAlreadyBoosted = false;
 Game.playerHealth = playerHealth;
 Game.defaultPlayerHealth = defaultPlayerHealth;
 Game.difficultyMultiplier = difficultyMultiplier;
-Game.currentUserHighScore = $('#CurrentUserHighScore').val();
-Game.allUsersHighScore = $('#AllUsersHighScore').val();
 
 function keyPressEvent(e) {
 	var keycode;
@@ -23,6 +21,7 @@ function keyPressEvent(e) {
 	}
 	if (keycode == 65 && e.ctrlKey && e.shiftKey) {
 		if (healthAlreadyBoosted == false) {
+			audio.power.play();
 			playerHealth = boostedPlayerHealth;
 			healthAlreadyBoosted = true;
 			Game.playerHealth = playerHealth;
@@ -169,6 +168,9 @@ do {
 
 	var levelGapVariant;
 	var levelMovementVariant;
+	if (waveAdded == waves - 4) {
+		audio.boss.play();
+	}
 	if (wavesAdded > waves - 4) {
 		levelGapVariant = 900;
 		levelMovementVariant = finalMovementVariantArray[Math.floor(Math.random() * finalMovementVariantArray.length)];
@@ -379,7 +381,7 @@ PlayerShip.prototype.hit = function (damage) {
 	if (isNaN(damage) == false) {
 		playerHealth = playerHealth - damage;
 		//console.log("OUCH!  {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
-		audio.fireAlt.play();
+		audio.hit.play();
 		Game.playerHealth = playerHealth;
 	}
 	if (playerHealth <= 0) {

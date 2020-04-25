@@ -169,7 +169,8 @@ do {
 	var levelGapVariant;
 	var levelMovementVariant;
 	if (wavesAdded == waves - 4) {
-		audio.boss.play();
+		console.log(wavesAdded, waves - 4);
+		//audio.boss.play();
 	}
 	if (wavesAdded > waves - 4) {
 		levelGapVariant = 900;

@@ -239,7 +239,7 @@ var playGame = function () {
 };
 
 var winGame = function () {
-	Game.setBoard(3, new TitleScreen("Awesome!", "", playGame));
+	Game.setBoard(3, new TitleScreen("AWESOME!", "", playGame));
 	audio.win.play();
 	$(document).keydown(function (e) {
 		if (e.which == 32) {
@@ -257,7 +257,7 @@ var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	audio.lose.play();
 	if ($('#Score').val() > 0) {
-		Game.setBoard(3, new TitleScreen("Game over!", "", playGame));
+		Game.setBoard(3, new TitleScreen("GAME OVER!", "", playGame));
 		$(document).keydown(function (e) {
 			if (e.which == 32) {
 				return false;
@@ -270,7 +270,7 @@ var loseGame = function () {
 		}, 2500);
 	}
 	else {
-		Game.setBoard(3, new TitleScreen("OH NO!", "You have been defeated!", playGame));
+		Game.setBoard(3, new TitleScreen("GAME OVER", "You have been defeated!", playGame));
 	}
 };
 

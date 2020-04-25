@@ -21,30 +21,7 @@ function keyPressEvent(e) {
 		e.preventDefault();
 	}
 	if (keycode == 65 && e.ctrlKey && e.shiftKey) {
-		if (healthAlreadyBoosted == false) {
-			audio.power.play();
-			playerHealth = boostedPlayerHealth;
-			healthAlreadyBoosted = true;
-			Game.playerHealth = playerHealth;
-			//console.log("I feel better already!");
-			if (ua.match(/android/)) {
-				Game.setBoard(0, new Starfield(100, 0.6, 100, true, "#00A9E0"));
-			} else {
-				Game.setBoard(0, new Starfield(60, 0.4, 100, true));
-				Game.setBoard(1, new Starfield(150, 0.6, 100));
-				Game.setBoard(2, new Starfield(300, 0.8, 50, false, "#00A9E0"));
-				var checkHealth = setInterval(function () {
-					//console.log("Checking vitals...");
-					if (playerHealth < defaultPlayerHealth)
-					{
-						Game.setBoard(0, new Starfield(20, 0.4, 100, true));
-						Game.setBoard(1, new Starfield(50, 0.6, 100));
-						Game.setBoard(2, new Starfield(150, 0.8, 50, false, "#FFFFFF"));
-						clearInterval(checkHealth);
-					}
-				}, 3000);
-			}
-		}
+		PlayerShip.boost();
 	}
 }
 document.onkeydown = keyPressEvent;
@@ -319,6 +296,35 @@ var PlayerShip = function () {
 	};
 };
 
+PlayerShip.boost = function () {
+
+	if (healthAlreadyBoosted == false) {
+		audio.power.play();
+		playerHealth = boostedPlayerHealth;
+		healthAlreadyBoosted = true;
+		Game.playerHealth = playerHealth;
+		//console.log("I feel better already!");
+		if (ua.match(/android/)) {
+			Game.setBoard(0, new Starfield(100, 0.6, 100, true, "#00A9E0"));
+		} else {
+			Game.setBoard(0, new Starfield(60, 0.4, 100, true));
+			Game.setBoard(1, new Starfield(150, 0.6, 100));
+			Game.setBoard(2, new Starfield(300, 0.8, 50, false, "#00A9E0"));
+			var checkHealth = setInterval(function () {
+				//console.log("Checking vitals...");
+				if (playerHealth < defaultPlayerHealth)
+				{
+					Game.setBoard(0, new Starfield(20, 0.4, 100, true));
+					Game.setBoard(1, new Starfield(50, 0.6, 100));
+					Game.setBoard(2, new Starfield(150, 0.8, 50, false, "#FFFFFF"));
+					clearInterval(checkHealth);
+				}
+			}, 3000);
+		}
+	}
+	
+}
+
 PlayerShip.prototype = new Sprite();
 PlayerShip.prototype.type = OBJECT_PLAYER;
 
@@ -460,6 +466,8 @@ Explosion.prototype.step = function (dt) {
 		this.board.remove(this);
 	}
 };
+
+
 
 window.addEventListener("load", function () {
 	Game.initialize("game", sprites, startGame);

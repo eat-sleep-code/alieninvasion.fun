@@ -397,7 +397,7 @@ var TouchControls = function() {
   this.trackTouch = function(e) {
     var touch;
     var x;
-    var boostPattern;
+    var boostPattern = '';
     e.preventDefault();
     Game.keys['left'] = false;
     Game.keys['right'] = false;

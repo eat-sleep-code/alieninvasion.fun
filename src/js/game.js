@@ -362,7 +362,7 @@ var PlayerShip = function () {
 		if (Game.keys['fire'] && this.reload < 0) {
 			Game.keys['fire'] = false;
 			this.reload = this.reloadTime;
-			console.log('Fire!');
+			audio.fire.play();
 			this.board.add(new PlayerMissile(this.x, this.y + this.h / 2));
 			this.board.add(new PlayerMissile(this.x + this.w, this.y + this.h / 2));
 		}

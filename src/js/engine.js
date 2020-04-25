@@ -467,16 +467,13 @@ var GameHealth = function () {
 		else if (Game.playerHealth > 75) {
 			ctx.fillStyle = "#FFB500";
 		}
-		else if (Game.playerHealth > 0) {
+		else if (Game.playerHealth >= 0) {
 			ctx.fillStyle = "#CE0037";
-		}
-		else {
-			ctx.fillStyle = "#FFFFFF";
 		}
 		var txt = Game.playerHealth + " \u2764";
 		var i = healthLength - txt.length, zeros = "";
 		while (i-- > 0) { zeros += "\u2007"; }
-		ctx.fillText(zeros + txt, Game.width - 100, 20);
+		ctx.fillText(zeros + txt, Game.width - 40, 20);
 		ctx.restore();
 	};
 	this.step = function (dt) { };

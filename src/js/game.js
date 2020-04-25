@@ -195,6 +195,7 @@ var playGame = function () {
 	var board = new GameBoard();
 	board.add(new PlayerShip());
 	board.add(new Level(level1, winGame));
+	Game.playerHealth = defaultPlayerHealth;
 	Game.setBoard(3, board);
 	Game.setBoard(5, new GamePoints(0));
 	Game.setBoard(6, new GameHealth(0));
@@ -208,6 +209,7 @@ var winGame = function () {
 			return false;
 		}
 	});
+	difficultyMultiplier = difficultyMultiplier * 1.5;
 	console.info('WIN: ' + Game.points);
 };
 

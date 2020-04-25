@@ -1,3 +1,5 @@
+var boostPattern = '';
+
 (function() {
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -397,7 +399,7 @@ var TouchControls = function() {
   this.trackTouch = function(e) {
     var touch;
     var x;
-    var boostPattern = '';
+    
     e.preventDefault();
     Game.keys['left'] = false;
     Game.keys['right'] = false;

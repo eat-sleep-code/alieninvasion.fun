@@ -115,7 +115,7 @@ var Game = new function() {
       alert("Please rotate the device and then click OK");
       w = window.innerWidth; h = window.innerHeight;
     }
-
+    console.log(w, h);
     container.style.height = h + "px";
     window.scrollTo(0,1);
 

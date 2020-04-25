@@ -8,7 +8,7 @@ html
 body
 {
     background: rgba(0, 0, 0, 1.0);
-    background-image: url('images/background.png');
+    background-image: url('/images/background.png');
     font-family: Verdana, sans-serif;
 	overflow: hidden;
 }

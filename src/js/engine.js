@@ -407,11 +407,11 @@ var TouchControls = function() {
       touch = e.targetTouches[i];
       x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
       if(x < unitWidth) {
-        boostPattern.concat('l');
+        boostPattern = boostPattern.concat('l');
         Game.keys['left'] = true;
       } 
       if(x > unitWidth && x < 2*unitWidth) {
-        boostPattern.concat('r')
+        boostPattern = boostPattern.concat('r')
         Game.keys['right'] = true;
       } 
     }
@@ -421,7 +421,7 @@ var TouchControls = function() {
         touch = e.changedTouches[i];
         x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
         if(x > 4 * unitWidth) {
-          boostPattern.concat('u');
+          boostPattern = boostPattern.concat('u');
           Game.keys['fire'] = (e.type == 'touchstart');
         }
       }

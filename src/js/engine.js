@@ -35,7 +35,7 @@ var Game = new function() {
     this.canvas.width = width;
     this.canvas.height = height;
 
-    this.playerOffset = 10;
+    this.playerOffset = 20;
     this.canvasMultiplier= 1;
     this.setupMobile();
 
@@ -178,7 +178,7 @@ var TitleScreen = function TitleScreen(title,subtitle,callback) {
   this.draw = function(ctx) {
     ctx.fillStyle = "#FFFFFF";
 
-    ctx.font = "bold 40px 'Impact, Charcoal, sans-serif'";
+    ctx.font = "bold 40px 'Verdana'";
     var measure = ctx.measureText(title);  
     ctx.fillText(title,Game.width/2 - measure.width/2,Game.height/2);
 

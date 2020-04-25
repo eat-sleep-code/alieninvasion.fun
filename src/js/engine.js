@@ -90,6 +90,7 @@ var Game = new function() {
     if(dt > maxTime) { dt = maxTime; }
 
     for(var i=0,len = boards.length;i<len;i++) {
+      console.log(len);
       if(boards[i]) { 
         boards[i].step(dt);
         boards[i].draw(Game.ctx);

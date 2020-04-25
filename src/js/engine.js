@@ -395,8 +395,9 @@ var TouchControls = function() {
   this.step = function(dt) { };
 
   this.trackTouch = function(e) {
-    var touch, x;
-
+    var touch;
+    var x;
+    var boostPattern;
     e.preventDefault();
     Game.keys['left'] = false;
     Game.keys['right'] = false;
@@ -404,10 +405,11 @@ var TouchControls = function() {
       touch = e.targetTouches[i];
       x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
       if(x < unitWidth) {
-        console.log('Left click');
+        boostPattern.concat('l');
         Game.keys['left'] = true;
       } 
       if(x > unitWidth && x < 2*unitWidth) {
+        boostPattern.concat('r')
         Game.keys['right'] = true;
       } 
     }
@@ -417,10 +419,13 @@ var TouchControls = function() {
         touch = e.changedTouches[i];
         x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
         if(x > 4 * unitWidth) {
+          boostPattern.concat('u');
           Game.keys['fire'] = (e.type == 'touchstart');
         }
       }
     }
+
+    console.log(boostPattern);
   };
 
   Game.canvas.addEventListener('touchstart',this.trackTouch,true);

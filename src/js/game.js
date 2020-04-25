@@ -132,6 +132,7 @@ var startGame = function () {
 									"left and right keys to move",
 								playGame));
 	}
+	audio.start.play();
 };
 
 
@@ -239,6 +240,7 @@ var playGame = function () {
 
 var winGame = function () {
 	Game.setBoard(3, new TitleScreen("Awesome!", "", playGame));
+	audio.win.play();
 	$(document).keydown(function (e) {
 		if (e.which == 32) {
 			return false;
@@ -253,6 +255,7 @@ var winGame = function () {
 
 var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
+	audio.lose.play();
 	if ($('#Score').val() > 0) {
 		Game.setBoard(3, new TitleScreen("Game over!", "", playGame));
 		$(document).keydown(function (e) {
@@ -376,6 +379,7 @@ PlayerShip.prototype.hit = function (damage) {
 	if (isNaN(damage) == false) {
 		playerHealth = playerHealth - damage;
 		//console.log("OUCH!  {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
+		audio.fireAlt.play();
 		Game.playerHealth = playerHealth;
 	}
 	if (playerHealth <= 0) {

@@ -116,14 +116,17 @@ var Game = new function() {
       w = window.innerWidth; h = window.innerHeight;
     }
 
-    container.style.height = h*2 + "px";
+    container.style.height = h + "px";
     window.scrollTo(0,1);
 
-    h = window.innerHeight + 2;
+    h = window.innerHeight;
     container.style.height = h + "px";
     container.style.width = w + "px";
     container.style.padding = 0;
 
+    this.canvas.width = w;
+    this.canvas.height = h;
+    /*
     if(h >= this.canvas.height * 1.75 || w >= this.canvas.height * 1.75) {
       this.canvasMultiplier = 2;
       this.canvas.width = w / 2;
@@ -134,6 +137,7 @@ var Game = new function() {
       this.canvas.width = w;
       this.canvas.height = h;
      }
+     */
 
     this.canvas.style.position='absolute';
     this.canvas.style.left="0px";

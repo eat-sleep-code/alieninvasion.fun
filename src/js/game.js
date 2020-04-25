@@ -190,43 +190,6 @@ while (wavesAdded < waves);
 //console.log(JSON.stringify(level1));
 
 
-//var level1 = [
-// // Start,   End, Gap,  Type,   Override
-//	[0, 4000, 500, 'step'],
-//	[6000, 13000, 800, 'ltr'],
-//	[10000, 16000, 400, 'circle'],
-//	[17800, 20000, 500, 'straight', { x: 50 }],
-//	[18200, 20000, 500, 'straight', { x: 90 }],
-//	[18200, 20000, 500, 'straight', { x: 10 }],
-//	[22000, 25000, 400, 'wiggle', { x: 150 }],
-//	[22000, 25000, 800, 'wiggle', { x: 100 }],
-//	[27000, 29000, 400, 'straight', { x: 400 }],
-//	[27500, 30000, 400, 'wiggle', { x: 200 }],
-//	[32000, 36000, 500, 'straight', { x: 300 }],
-//	[32000, 37000, 400, 'wiggle', { x: 10 }],
-//	[32000, 38000, 600, 'step', { x: 50 }],
-//	[39000, 42000, 400, 'wiggle', { x: 100 }],
-//	[41000, 46000, 500, 'straight', { x: 300 }],
-//	[47500, 50000, 600, 'wiggle', { x: 500 }],
-//	[56000, 58000, 400, 'circle', { x: 200 }],
-//	[62000, 65000, 700, 'wiggle', { x: 90 }],
-//	[66000, 69800, 400, 'circle', { x: 100 }],
-//	[72000, 76000, 800, 'wiggle', { x: 300 }],
-//	[80000, 82800, 400, 'circle', { x: 100 }],
-//	[84000, 86000, 500, 'straight', { x: 300 }],
-//	[90000, 94000, 900, 'wiggle', { x: 10 }],
-//	[90500, 96000, 400, 'straight', { x: 70 }],
-//	[91000, 95000, 400, 'wiggle', { x: 300 }],
-//	[92000, 96000, 400, 'ltr', { x: 400 }],
-//	[92500, 97000, 400, 'straight', { x: 500 }],
-//	[93000, 98000, 400, 'step', { x: 200 }],
-//	[98000, 105000, 900, 'final'],
-//	[99000, 105000, 900, 'final', { x: 500 }]
-//];
-
-
-
-
 var playGame = function () {
 	audio.start.play();
 	var board = new GameBoard();
@@ -443,6 +406,9 @@ Enemy.prototype.step = function (dt) {
 
 	if (Math.random() < 0.01 && this.reload <= 0) {
 		this.reload = this.reloadTime;
+		if (this.misssles == 4) {
+			audio.boss.play();
+		}
 		if (this.missiles == 2) {
 			this.board.add(new EnemyMissile(this.x + this.w - 2, this.y + this.h));
 			this.board.add(new EnemyMissile(this.x + 2, this.y + this.h));

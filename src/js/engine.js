@@ -178,7 +178,7 @@ var SplashScreen = function SplashScreen(imagePath, textline1, textline2, callba
 
 		var splashImage = new Image();
 		splashImage.src = imagePath;
-		ctx.drawImage(splashImage, Game.width / 2 - 420 / 2, Game.height / 2 - 150, 420, 263);
+		ctx.drawImage(splashImage, Game.width / 2 - 420 / 2, Game.height / 2 - 150, 400, 400);
 
 		ctx.font = "normal 18px 'Verdana'";
 		var measure1 = ctx.measureText(textline1);
@@ -428,8 +428,7 @@ var TouchControls = function() {
     }
 
     console.log(boostPattern);
-    if (boostPattern.includes('llllrruull')) {
-      console.log('true');
+    if (boostPattern.includes('lrlruullll')) {
       PlayerShip.boost();
     }
   };

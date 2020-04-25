@@ -12,7 +12,6 @@ Game.defaultPlayerHealth = defaultPlayerHealth;
 Game.difficultyMultiplier = difficultyMultiplier;
 
 function keyPressEvent(e) {
-	console.log('keypress');
 	var keycode;
 	if (window.event) keycode = window.event.keyCode;
 	else if (e) keycode = e.which;

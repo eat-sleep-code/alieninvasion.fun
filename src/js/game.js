@@ -267,7 +267,7 @@ var loseGame = function () {
 		}, 2500);
 	}
 	else {
-		Game.setBoard(3, new TitleScreen("You Lose!", "please try again", playGame));
+		Game.setBoard(3, new TitleScreen("OH NO!", "You have been defeated!", playGame));
 	}
 };
 

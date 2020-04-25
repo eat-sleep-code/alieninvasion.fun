@@ -27,7 +27,7 @@ body
     width: calc(100vh * 0.66);
 }
 
-@media (max-width: 640px) 
+@media (max-width: 576px) 
 {
     .game-container > canvas
     {

@@ -45,7 +45,7 @@ var Game = new function() {
     //console.log(this.width, this.height);
 
     this.ctx = this.canvas.getContext && this.canvas.getContext('2d');
-    if(!this.ctx) { return alert("Please upgrade your browser to play"); }
+    if(!this.ctx) { return alert("Please upgrade your browser!"); }
 
     this.setupInput();
 
@@ -110,7 +110,7 @@ var Game = new function() {
     if(hasTouch) { this.mobile = true; }
     if(screen.width >= 1280 || !hasTouch) { return false; }
     if(w > h) {
-      alert("Please rotate the device and then click OK");
+      alert("Please rotate the device!");
       w = window.innerWidth; h = window.innerHeight;
     }
     this.canvas.style.width = "100vw";

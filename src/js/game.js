@@ -119,7 +119,7 @@ var startGame = function () {
 		Game.setBoard(2, new Starfield(100, 1.0, 50));
 	}
 	//console.log($(window).width());
-	if ($(window).width() <= 480) {
+	if ($(window).width() <= 576) {
 		Game.setBoard(3, new SplashScreen('images/splash.png',
 									"",
 									"",
@@ -128,8 +128,8 @@ var startGame = function () {
 	else
 	{
 		Game.setBoard(3, new SplashScreen('images/splash.png',
-									"press the spacebar to battle the threats",
-									"press the left and right arrow keys to move",
+									"spacebar to fire",
+									"left and right keys to move",
 								playGame));
 	}
 };
@@ -267,7 +267,7 @@ var loseGame = function () {
 		}, 2500);
 	}
 	else {
-		Game.setBoard(3, new TitleScreen("Try again", "Press the spacebar to start playing!", playGame));
+		Game.setBoard(3, new TitleScreen("You Lose!", "please try again", playGame));
 	}
 };
 

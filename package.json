@@ -1,7 +1,7 @@
 {
   "name": "invaders",
   "version": "2020.4.24",
-  "description": "Cyber Space Invaders",
+  "description": "Alien Invasion",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,9 +28,9 @@
   "keywords": [
     "game",
     "javascript",
-    "cyber",
-    "space",
-    "invaders"
+    "alien",
+    "invasion",
+    "space"
   ],
   "author": " <eat-sleep-code />",
   "license": "MIT",

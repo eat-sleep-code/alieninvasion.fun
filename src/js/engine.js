@@ -427,7 +427,9 @@ var TouchControls = function() {
       }
     }
 
-    console.log(boostPattern);
+    if (boostPattern.includes('llllrruull')) {
+      PlayerShip.boost();
+    }
   };
 
   Game.canvas.addEventListener('touchstart',this.trackTouch,true);

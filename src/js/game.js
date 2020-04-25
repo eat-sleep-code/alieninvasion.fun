@@ -96,14 +96,14 @@ var startGame = function () {
 	}
 	//console.log($(window).width());
 	if ($(window).width() <= 576) {
-		Game.setBoard(3, new SplashScreen('images/splash.svg',
+		Game.setBoard(3, new SplashScreen('images/splash-mobile.svg',
 									"",
 									"",
 								playGame));
 	}
 	else
 	{
-		Game.setBoard(3, new SplashScreen('images/splash-mobile.svg',
+		Game.setBoard(3, new SplashScreen('images/splash.svg',
 									"",
 									"",
 								playGame));
@@ -168,14 +168,16 @@ while (wavesAdded < waves);
 
 
 var playGame = function () {
-	audio.start.play();
-	var board = new GameBoard();
-	board.add(new PlayerShip());
-	board.add(new Level(level1, winGame));
-	Game.playerHealth = defaultPlayerHealth;
-	Game.setBoard(3, board);
-	Game.setBoard(5, new GamePoints(0));
-	Game.setBoard(6, new GameHealth(0));
+	setTimeout(function(){
+		audio.start.play();
+		var board = new GameBoard();
+		board.add(new PlayerShip());
+		board.add(new Level(level1, winGame));
+		Game.playerHealth = defaultPlayerHealth;
+		Game.setBoard(3, board);
+		Game.setBoard(5, new GamePoints(0));
+		Game.setBoard(6, new GameHealth(0));
+	}, 1500);
 };
 
 var winGame = function () {

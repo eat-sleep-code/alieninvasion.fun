@@ -128,7 +128,7 @@ var startGame = function () {
 	else
 	{
 		Game.setBoard(3, new SplashScreen('images/splash.png',
-									"spacebar to fire",
+									"press spacebar to fire",
 									"left and right keys to move",
 								playGame));
 	}
@@ -362,7 +362,7 @@ var PlayerShip = function () {
 		if (Game.keys['fire'] && this.reload < 0) {
 			Game.keys['fire'] = false;
 			this.reload = this.reloadTime;
-
+			console.log('Fire!');
 			this.board.add(new PlayerMissile(this.x, this.y + this.h / 2));
 			this.board.add(new PlayerMissile(this.x + this.w, this.y + this.h / 2));
 		}

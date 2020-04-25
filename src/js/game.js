@@ -132,7 +132,6 @@ var startGame = function () {
 									"left and right keys to move",
 								playGame));
 	}
-	audio.start.play();
 };
 
 
@@ -230,6 +229,7 @@ while (wavesAdded < waves);
 
 
 var playGame = function () {
+	audio.start.play();
 	var board = new GameBoard();
 	board.add(new PlayerShip());
 	board.add(new Level(level1, winGame));

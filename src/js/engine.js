@@ -113,34 +113,7 @@ var Game = new function() {
       alert("Please rotate the device and then click OK");
       w = window.innerWidth; h = window.innerHeight;
     }
-    console.log(w, h);
-    /*
-    container.style.height = h + "px";
-    window.scrollTo(0,1);
-
-    h = window.innerHeight;
-    container.style.height = h + "px";
-    container.style.width = w + "px";
-    container.style.padding = 0;
-
-    this.canvas.width = w;
-    this.canvas.height = h;
-    if(h >= this.canvas.height * 1.75 || w >= this.canvas.height * 1.75) {
-      this.canvasMultiplier = 2;
-      this.canvas.width = w / 2;
-      this.canvas.height = h / 2;
-      this.canvas.style.width = w + "px";
-      this.canvas.style.height = h + "px";
-    } else {
-      this.canvas.width = w;
-      this.canvas.height = h;
-     }
-    
-
-    this.canvas.style.position='absolute';
-    this.canvas.style.left="0px";
-    this.canvas.style.top="0px";
-   */
+    this.canvas.style.width = "100vw";
   };
 
 };
@@ -180,11 +153,11 @@ var TitleScreen = function TitleScreen(title,subtitle,callback) {
   this.draw = function(ctx) {
     ctx.fillStyle = "#FFFFFF";
 
-    ctx.font = "bold 40px 'Verdana'";
+    ctx.font = "bold 30px 'Verdana'";
     var measure = ctx.measureText(title);  
     ctx.fillText(title,Game.width/2 - measure.width/2,Game.height/2);
 
-    ctx.font = "bold 20px 'Verdana'";
+    ctx.font = "bold 18px 'Verdana'";
     var measure2 = ctx.measureText(subtitle);
     ctx.fillText(subtitle,Game.width/2 - measure2.width/2,Game.height/2 + 40);
   };
@@ -393,7 +366,7 @@ var TouchControls = function() {
   var blockWidth = unitWidth-gutterWidth;
 
   this.drawSquare = function(ctx,x,y,txt,on) {
-    ctx.globalAlpha = on ? 0.9 : 0.6;
+    ctx.globalAlpha = on ? 0.1 : 0.6;
     ctx.fillStyle =  "#CCC";
     ctx.fillRect(x,y,blockWidth,blockWidth);
 

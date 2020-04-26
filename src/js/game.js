@@ -13,10 +13,13 @@ Game.defaultPlayerHealth = defaultPlayerHealth;
 Game.difficultyMultiplier = difficultyMultiplier;
 
 function GetRandomX() {
-	console.log(Game.width);
-	var randomX = Math.floor(Math.random() * Math.floor(Game.width - 10));
-	console.log(randomX);
-	return randomX;
+	$(document).ready(function() {
+		var canvasWidth = $('#game').width();
+		console.log(canvasWidth);
+		var randomX = Math.floor(Math.random() * Math.floor(canvasWidth - 10));
+		console.log(randomX);
+		return randomX;
+	});
 }
 
 function keyPressEvent(e) {

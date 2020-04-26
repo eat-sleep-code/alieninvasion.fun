@@ -177,7 +177,7 @@ var playGame = function () {
 		Game.setBoard(3, board);
 		Game.setBoard(5, new GamePoints(0));
 		Game.setBoard(6, new GameHealth(0));
-	}, 1500);
+	}, 1000);
 };
 
 var winGame = function () {
@@ -185,7 +185,9 @@ var winGame = function () {
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32) {
-			return false;
+			setTimeout(function(){
+				return false;
+			}, 1500);
 		}
 	});
 	difficultyMultiplier = difficultyMultiplier * 1.5;
@@ -196,6 +198,13 @@ var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	audio.lose.play();
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
+	$(document).keydown(function (e) {
+		if (e.which == 32) {
+			setTimeout(function(){
+				return false;
+			}, 1500);
+		}
+	});
 	console.info('LOSS: ' + Game.points);
 };
 

@@ -356,11 +356,17 @@ Level.prototype.step = function(dt) {
 	if(this.callback) this.callback();
   }
 
-  if (curShip[3].includes('Final') && bossLevel == false) {
-	bossLevel = true;
-	audio.boss.play();
+  if (bossLevel == false)
+  {
+	try {
+		if (String(curShip[3]).includes('Final')) {
+			bossLevel = true;
+			audio.boss.play();
+		}
+	}
+	catch(error) {}
   }
-  
+
 };
 
 Level.prototype.draw = function(ctx) { };

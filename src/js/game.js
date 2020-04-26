@@ -42,37 +42,41 @@ var sprites = {
 	enemy_circle_final: { sx: 360, sy: 0, w: 70, h: 60, frames: 1 }
 };
 
+function GetRandomX() {
+	return Math.floor(Math.random() * Math.floor(Game.width - 10));
+}
+
 var enemies = {
 	straight: {
-		x: 0, y: -50, sprite: 'enemy_ship', health: 20 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_ship', health: 20 * difficultyMultiplier,
 		E: 100
 	},
 	ltr: {
-		x: 0, y: -100, sprite: 'enemy_purple', health: 10 * difficultyMultiplier,
+		x: GetRandomX(), y: -100, sprite: 'enemy_purple', health: 10 * difficultyMultiplier,
 		B: 75, C: 1, E: 100, missiles: 2
 	},
 	circle: {
-		x: 250, y: -50, sprite: 'enemy_circle', health: 10 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_circle', health: 10 * difficultyMultiplier,
 		A: 0, B: -100, C: 1, E: 20, F: 100, G: 1, H: Math.PI / 2
 	},
 	wiggle: {
-		x: 100, y: -50, sprite: 'enemy_bee', health: 20 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_bee', health: 20 * difficultyMultiplier,
 		B: 50, C: 4, E: 100, firePercentage: 0.001, missiles: 2
 	},
 	step: {
-		x: 0, y: -50, sprite: 'enemy_circle', health: 10 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_circle', health: 10 * difficultyMultiplier,
 		B: 150, C: 1.2, E: 75
 	},
 	wiggleFinal: {
-		x: 100, y: -50, sprite: 'enemy_bee_final', health: 100 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_bee_final', health: 100 * difficultyMultiplier,
 		B: 50, C: 4, E: 100, firePercentage: 4, missiles: 4
 	},
 	straightFinal: {
-		x: 0, y: -50, sprite: 'enemy_straight_final', health: 100 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_straight_final', health: 100 * difficultyMultiplier,
 		E: 100, missiles: 3
 	},
 	circleFinal: {
-		x: 0, y: -50, sprite: 'enemy_circle_final', health: 100 * difficultyMultiplier,
+		x: GetRandomX(), y: -50, sprite: 'enemy_circle_final', health: 100 * difficultyMultiplier,
 		A: 0, B: -100, C: 1, E: 20, F: 100, G: 1, H: Math.PI / 2, missiles: 2
 	}
 };

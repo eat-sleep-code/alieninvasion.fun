@@ -159,7 +159,7 @@ do {
 	//console.log("Movement: " + levelMovementVariant);
 
 	var canvasWidth = $('#game').width();
-	console.log('Canvas Width: ' + canvasWidth);
+	//console.log('Canvas Width: ' + canvasWidth);
 	var levelXPositionVariant = Math.floor(Math.random() * (canvasWidth - 10 + 1) + 10);
 	//var levelXPositionVariant = Math.floor(Math.random() * (400 - 10 + 1) + 10);
 	//console.log("Position: " + levelXPositionVariant.toString());

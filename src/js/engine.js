@@ -427,7 +427,7 @@ var TouchControls = function() {
     }
 
     //console.log(boostPattern);
-    if (boostPattern.includes('lrlrllll')) {
+    if (boostPattern.includes('llllllllllllllrrrrrrrrrrrrr')) {
       PlayerShip.boost();
     }
   };

@@ -1,3 +1,4 @@
+var gameStarted = false;
 var playerHealth = 300;
 var defaultPlayerHealth = playerHealth;
 var boostedPlayerHealth = 600;
@@ -467,10 +468,12 @@ Explosion.prototype.step = function (dt) {
 	}
 };
 
-$('#game').focus(function() {
-	alert('howdy');
+$(document).ready(function() {
+	$('#game').click(function() {
+		alert('howdy');
+		console.log('howdy');
+	});
 });
-
 
 window.addEventListener("load", function () {
 	Game.initialize("game", sprites, startGame);

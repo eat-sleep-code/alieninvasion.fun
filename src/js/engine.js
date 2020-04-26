@@ -406,13 +406,20 @@ var TouchControls = function() {
       touch = e.targetTouches[i];
       x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
       if(x < unitWidth) {
+        console.log('l');
         boostPattern = boostPattern.concat('l');
         Game.keys['left'] = true;
       } 
       if(x > unitWidth && x < 2*unitWidth) {
+        console.log('l');
         boostPattern = boostPattern.concat('r')
         Game.keys['right'] = true;
       } 
+
+      console.log(boostPattern);
+      if (boostPattern.includes('llllllllllllllrrrrrrrrrrrrr')) {
+        PlayerShip.boost();
+      }
     }
 
     if(e.type == 'touchstart' || e.type == 'touchend') {
@@ -424,11 +431,6 @@ var TouchControls = function() {
           Game.keys['fire'] = (e.type == 'touchstart');
         }
       }
-    }
-
-    console.log(boostPattern);
-    if (boostPattern.includes('llllllllllllllrrrrrrrrrrrrr')) {
-      PlayerShip.boost();
     }
   };
 

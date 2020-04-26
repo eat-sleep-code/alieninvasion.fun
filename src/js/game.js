@@ -184,7 +184,7 @@ var winGame = function () {
 	audio.win.play();
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
 	$(document).keydown(function (e) {
-		if (e.which == 32) {
+		if (e.which == 32 || e.which == 37 || e.which == 39) {
 			setTimeout(function(){
 				return false;
 			}, 1500);
@@ -199,7 +199,7 @@ var loseGame = function () {
 	audio.lose.play();
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
 	$(document).keydown(function (e) {
-		if (e.which == 32) {
+		if (e.which == 32 || e.which == 37 || e.which == 39) {
 			setTimeout(function(){
 				return false;
 			}, 1500);

@@ -421,10 +421,6 @@ Enemy.prototype.step = function (dt) {
 
 	var collision = this.board.collide(this, OBJECT_PLAYER);
 
-	if (this.misssles == 4) {
-		audio.boss.play();
-	}
-
 	if (collision) {
 		collision.hit(this.damage);
 		this.board.remove(this);

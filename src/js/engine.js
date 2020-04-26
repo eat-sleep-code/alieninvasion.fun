@@ -386,11 +386,10 @@ var TouchControls = function() {
 
   this.draw = function(ctx) {
     ctx.save();
-
     var yLoc = Game.height - unitWidth;
-    this.drawSquare(ctx, gutterWidth, yLoc, "\u25C0", Game.keys['left']);
-    this.drawSquare(ctx, unitWidth + gutterWidth, yLoc, "\u25B6", Game.keys['right']);
-    this.drawSquare(ctx, 4 * unitWidth, yLoc, "\u25B2", Game.keys['fire']);
+    this.drawSquare(ctx, gutterWidth, yLoc, "\u140A", Game.keys['left']);
+    this.drawSquare(ctx, unitWidth + gutterWidth, yLoc, "\u1405", Game.keys['right']);
+    this.drawSquare(ctx, 4 * unitWidth, yLoc, "\u2739", Game.keys['fire']);
     ctx.restore();
   };
 

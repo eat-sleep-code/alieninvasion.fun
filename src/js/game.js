@@ -468,7 +468,9 @@ Explosion.prototype.step = function (dt) {
 	}
 };
 
+console.log('here');
 $(document).ready(function() {
+	console.log('there');
 	$('#game').click(function() {
 		alert('howdy');
 		console.log('howdy');

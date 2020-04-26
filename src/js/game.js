@@ -467,6 +467,9 @@ Explosion.prototype.step = function (dt) {
 	}
 };
 
+$('#game').focus(function() {
+	alert('howdy');
+});
 
 
 window.addEventListener("load", function () {

@@ -15,7 +15,7 @@ Game.difficultyMultiplier = difficultyMultiplier;
 function GetRandomX() {
 	$(document).ready(function() {
 		var canvasWidth = $('#game').width();
-		var randomX = Math.floor(Math.random() * Math.floor(canvasWidth - 10));
+		var randomX = Math.floor(Math.random() * Math.floor(canvasWidth - 80));
 		console.log('In Function: ' + randomX);
 		return randomX;
 	});
@@ -166,9 +166,9 @@ do {
 	}
 	//console.log("Gap: " + levelGapVariant);
 	//console.log("Movement: " + levelMovementVariant);
-
-	var levelXPositionVariant = Math.floor(Math.random() * (GetRandomX() - 10 + 1) + 10);
-	console.log("Position: " + levelXPositionVariant.toString());
+	var randomX = GetRandomX();
+	var levelXPositionVariant = Math.floor(Math.random() * (randomX - 10 + 1) + 10);
+	console.log("Position: ", randomX, levelXPositionVariant.toString());
 
 	level1.push([levelStartVariant, levelEndVariant, levelGapVariant, levelMovementVariant, {x: levelXPositionVariant}]);
 	wavesAdded++;

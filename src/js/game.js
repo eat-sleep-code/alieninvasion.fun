@@ -468,17 +468,23 @@ Explosion.prototype.step = function (dt) {
 	}
 };
 
+
 $(document).ready(function() {
 	$('#game').click(function() {
-		console.log('desktop click');
+		if (gameStarted == false) 
+		{
+			gameStarted = true;
+			audio.start.play();
+		}
 	});
 });
 
 document.addEventListener('touchstart', function(e) {
-	console.log('touch start');
-    e.preventDefault();
-    var touch = e.touches[0];
-    alert(touch.pageX + " - " + touch.pageY);
+	if (gameStarted == false) 
+	{
+		gameStarted = true;
+		audio.start.play();
+	}
 }, false);
 
 window.addEventListener("load", function () {

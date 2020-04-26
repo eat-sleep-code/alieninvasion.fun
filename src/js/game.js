@@ -491,7 +491,7 @@ function startAudio() {
 		try {
 			audio.start.play();
 			gameStarted = true;
-			startGame();
+			Game.initialize("game", sprites, startGame);
 		}
 		catch(error) {}
 	}

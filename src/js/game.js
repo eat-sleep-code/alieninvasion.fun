@@ -181,12 +181,20 @@ var playGame = function () {
 };
 
 var winGame = function () {
+	try {
+		audio.boss.pause();
+		audio.boss.currentTime = 0;
+	}
+	catch(error) {}
 	audio.win.play();
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32 || e.which == 37 || e.which == 39) {
 			setTimeout(function(){
-				return false;
+				try {
+					e.preventDefault();
+				}
+				catch(error) {}
 			}, 1500);
 		}
 	});
@@ -196,12 +204,22 @@ var winGame = function () {
 
 var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
+	try {
+		audio.boss.pause();
+		audio.boss.currentTime = 0;
+		audio.start.pause();
+		audio.start.currentTime = 0;
+	}
+	catch(error) {}
 	audio.lose.play();
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32 || e.which == 37 || e.which == 39) {
 			setTimeout(function(){
-				return false;
+				try {
+					e.preventDefault();
+				}
+				catch(error) {}
 			}, 1500);
 		}
 	});
@@ -314,7 +332,7 @@ PlayerShip.boost = function () {
 		healthAlreadyBoosted = true;
 		Game.playerHealth = playerHealth;
 		//console.log("I feel better already!");
-		if (ua.match(/android/)) {
+		if (ua.match(/android/) || Game.width <= 576) {
 			Game.setBoard(0, new Starfield(100, 0.6, 100, true, "#00A9E0"));
 		} else {
 			Game.setBoard(0, new Starfield(60, 0.4, 100, true));

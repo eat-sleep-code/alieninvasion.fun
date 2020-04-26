@@ -162,7 +162,7 @@ do {
 	//console.log("Gap: " + levelGapVariant);
 	//console.log("Movement: " + levelMovementVariant);
 
-	var levelXPositionVariant = Math.floor(Math.random() * (400 - 10 + 1) + 10);
+	var levelXPositionVariant = GetRandomX();
 	//console.log("Position: " + levelXPositionVariant.toString());
 
 	level1.push([levelStartVariant, levelEndVariant, levelGapVariant, levelMovementVariant, {x: levelXPositionVariant}]);

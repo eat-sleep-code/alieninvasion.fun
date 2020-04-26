@@ -177,7 +177,7 @@ var playGame = function () {
 		Game.setBoard(3, board);
 		Game.setBoard(5, new GamePoints(0));
 		Game.setBoard(6, new GameHealth(0));
-	}, 1000);
+	}, 500);
 };
 
 var winGame = function () {
@@ -491,7 +491,7 @@ function startAudio() {
 		try {
 			audio.start.play();
 			gameStarted = true;
-			Game.initialize("game", sprites, startGame);
+			playGame();
 		}
 		catch(error) {}
 	}

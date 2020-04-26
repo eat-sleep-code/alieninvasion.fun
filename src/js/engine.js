@@ -414,7 +414,7 @@ var TouchControls = function() {
         Game.keys['right'] = true;
       } 
 
-      console.log(boostPattern);
+      //console.log(boostPattern);
       if (boostPattern.includes('lllllllllllllllllrrrrrrrrrrrrrrrr')) {
         PlayerShip.boost();
       }

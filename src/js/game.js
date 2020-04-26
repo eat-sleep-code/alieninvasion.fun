@@ -491,6 +491,7 @@ function startAudio() {
 		try {
 			audio.start.play();
 			gameStarted = true;
+			startGame();
 		}
 		catch(error) {}
 	}

@@ -16,7 +16,7 @@ function GetRandomX() {
 	$(document).ready(function() {
 		var canvasWidth = $('#game').width();
 		var randomX = Math.floor(Math.random() * Math.floor(canvasWidth - 10));
-		//console.log(randomX);
+		console.log('In Function: ' + randomX);
 		return randomX;
 	});
 }

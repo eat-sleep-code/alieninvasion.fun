@@ -483,7 +483,7 @@ var GameHealth = function () {
 		var txt = Game.playerHealth + " \u2764";
 		var i = healthLength - txt.length, zeros = "";
 		while (i-- > 0) { zeros += "\u2007"; }
-		ctx.fillText(zeros + txt, Game.width - 60, 20);
+		ctx.fillText(zeros + txt, Game.width - 80, 20);
 		ctx.restore();
 	};
 	this.step = function (dt) { };

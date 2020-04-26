@@ -13,6 +13,7 @@ Game.defaultPlayerHealth = defaultPlayerHealth;
 Game.difficultyMultiplier = difficultyMultiplier;
 
 function GetRandomX() {
+	console.log(Game.width);
 	var randomX = Math.floor(Math.random() * Math.floor(Game.width - 10));
 	console.log(randomX);
 	return randomX;

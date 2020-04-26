@@ -479,7 +479,7 @@ $(document).ready(function() {
 	});
 });
 
-document.addEventListener('touchstart', startAudio);
+document.addEventListener('touchend', startAudio);
 
 function startAudio() {
 	audio.start.play();

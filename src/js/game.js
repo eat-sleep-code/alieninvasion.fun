@@ -165,10 +165,8 @@ $(document).ready(function() {
 		
 		var canvasWidth = $('#game').width();
 		console.log('Canvas Width: ' + canvasWidth);
-		var randomX = function() {return Math.floor(Math.random() * Math.floor(canvasWidth - 80))};
-		
-		var levelXPositionVariant = Math.floor(Math.random() * (randomX - 10 + 1) + 10);
-		console.log("Position: ", randomX, levelXPositionVariant.toString());
+		var levelXPositionVariant = Math.floor(Math.random() * (canvasWidth - 10 + 1) + 10);
+		console.log("Position: ", levelXPositionVariant.toString());
 
 		level1.push([levelStartVariant, levelEndVariant, levelGapVariant, levelMovementVariant, {x: levelXPositionVariant}]);
 		wavesAdded++;

@@ -169,8 +169,6 @@ while (wavesAdded < waves);
 
 var playGame = function () {
 	setTimeout(function(){
-		audioEffect.src = audio.start;
-		audioEffect.play();
 		var board = new GameBoard();
 		board.add(new PlayerShip());
 		board.add(new Level(level1, winGame));
@@ -182,8 +180,7 @@ var playGame = function () {
 };
 
 var winGame = function () {
-	audioEffect.src = audio.win;
-	audioEffect.play();
+	audio.win.play();
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32) {
@@ -196,8 +193,7 @@ var winGame = function () {
 
 var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
-	audioEffect.src = audio.lose;
-	audioEffect.play();
+	audio.lose.play();
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
 	console.info('LOSS: ' + Game.points);
 };
@@ -293,8 +289,7 @@ var PlayerShip = function () {
 		if (Game.keys['fire'] && this.reload < 0) {
 			Game.keys['fire'] = false;
 			this.reload = this.reloadTime;
-			audioEffect.src = audio.fire;
-			audioEffect.play();
+			audio.fire.play();
 			this.board.add(new PlayerMissile(this.x, this.y + this.h / 2));
 			this.board.add(new PlayerMissile(this.x + this.w, this.y + this.h / 2));
 		}
@@ -304,8 +299,7 @@ var PlayerShip = function () {
 PlayerShip.boost = function () {
 	//console.log("Boost!");
 	if (healthAlreadyBoosted == false) {
-		audioEffect.src = audio.power;
-		audioEffect.play();
+		audio.power.play();
 		playerHealth = boostedPlayerHealth;
 		healthAlreadyBoosted = true;
 		Game.playerHealth = playerHealth;
@@ -338,8 +332,7 @@ PlayerShip.prototype.hit = function (damage) {
 	if (isNaN(damage) == false) {
 		playerHealth = playerHealth - damage;
 		//console.log("OUCH!  {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
-		audioEffect.src = audio.hit;
-		audioEffect.play();
+		audio.hit.play();
 		Game.playerHealth = playerHealth;
 	}
 	if (playerHealth <= 0) {
@@ -398,9 +391,8 @@ Enemy.prototype.step = function (dt) {
 
 	var collision = this.board.collide(this, OBJECT_PLAYER);
 
-	if (this.missiles == 4) {
-		audioEffect.src = audio.boss;
-		audioEffect.play();
+	if (this.misssles == 4) {
+		audio.boss.play();
 	}
 
 	if (collision) {
@@ -433,8 +425,7 @@ Enemy.prototype.hit = function (damage) {
 		if (this.board.remove(this)) {
 			Game.points += this.points || 100;
 			this.board.add(new Explosion(this.x + this.w / 2, this.y + this.h / 2));
-			audioEffect.src = audio.boom;
-			audioEffect.play();
+			audio.boom.play();
 		}
 	}
 };

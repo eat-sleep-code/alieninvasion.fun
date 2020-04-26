@@ -355,7 +355,7 @@ Level.prototype.step = function(dt) {
     if(this.callback) this.callback();
   }
 
-  console.log(this.levelData[idx]);
+  console.log(curShip[3], this.levelData[idx][3]);
 };
 
 Level.prototype.draw = function(ctx) { };

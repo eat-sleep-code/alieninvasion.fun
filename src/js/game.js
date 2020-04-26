@@ -471,18 +471,20 @@ Explosion.prototype.step = function (dt) {
 
 $(document).ready(function() {
 	$('#game').click(function() {
-		if (gameStarted == false) 
-		{
-			gameStarted = true;
-			audio.start.play();
-		}
-	});
+		startAudio();
+	});	
 });
-
 document.addEventListener('touchend', startAudio);
 
 function startAudio() {
-	audio.start.play();
+	if (gameStarted == false) 
+	{
+		try {
+			audio.start.play();
+			gameStarted = true;
+		}
+		catch(error) {}
+	}
 }
 
 window.addEventListener("load", function () {

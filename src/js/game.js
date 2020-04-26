@@ -468,14 +468,18 @@ Explosion.prototype.step = function (dt) {
 	}
 };
 
-console.log('here');
 $(document).ready(function() {
-	console.log('there');
 	$('#game').click(function() {
-		alert('howdy');
-		console.log('howdy');
+		console.log('desktop click');
 	});
 });
+
+document.addEventListener('touchstart', function(e) {
+	console.log('touch start');
+    e.preventDefault();
+    var touch = e.touches[0];
+    alert(touch.pageX + " - " + touch.pageY);
+}, false);
 
 window.addEventListener("load", function () {
 	Game.initialize("game", sprites, startGame);

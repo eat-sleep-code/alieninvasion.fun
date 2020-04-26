@@ -420,13 +420,13 @@ var TouchControls = function() {
         touch = e.changedTouches[i];
         x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
         if(x > 4 * unitWidth) {
-          boostPattern = boostPattern.concat('u');
+          //boostPattern = boostPattern.concat('u');
           Game.keys['fire'] = (e.type == 'touchstart');
         }
       }
     }
 
-    //console.log(boostPattern);
+    console.log(boostPattern);
     if (boostPattern.includes('llllllllllllllrrrrrrrrrrrrr')) {
       PlayerShip.boost();
     }

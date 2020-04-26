@@ -479,13 +479,11 @@ $(document).ready(function() {
 	});
 });
 
-document.addEventListener('touchstart', function(e) {
-	if (gameStarted == false) 
-	{
-		gameStarted = true;
-		audio.start.play();
-	}
-}, false);
+document.addEventListener('touchstart', startAudio);
+
+function startAudio() {
+	audio.start.play();
+}
 
 window.addEventListener("load", function () {
 	Game.initialize("game", sprites, startGame);

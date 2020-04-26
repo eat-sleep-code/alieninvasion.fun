@@ -1,4 +1,5 @@
 var boostPattern = '';
+var bossLevel = false;
 
 (function() {
     var lastTime = 0;

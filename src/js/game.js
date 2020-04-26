@@ -182,6 +182,7 @@ var playGame = function () {
 
 var winGame = function () {
 	try {
+		bossLevel = false;
 		audio.boss.pause();
 		audio.boss.currentTime = 0;
 	}
@@ -205,6 +206,7 @@ var winGame = function () {
 var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	try {
+		bossLevel = false;
 		audio.boss.pause();
 		audio.boss.currentTime = 0;
 		audio.start.pause();

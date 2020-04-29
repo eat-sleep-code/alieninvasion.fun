@@ -455,7 +455,10 @@ var TouchControls = function() {
 
 
 var GamePoints = function() {
-	Game.points = 0;
+	if (reset == true)
+	{
+		Game.points = 0;
+	}
 	var pointsLength = 8;
 	this.draw = function(ctx) {
 		ctx.save();
@@ -474,6 +477,10 @@ var GamePoints = function() {
 
 
 var GameHealth = function () {
+	if (reset == true)
+	{
+		Game.playerHealth = Game.defaultPlayerHealth;
+	}
 	var healthLength = 4;
 	this.draw = function (ctx) {
 		ctx.save();

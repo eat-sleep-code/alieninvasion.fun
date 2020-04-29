@@ -1,13 +1,16 @@
+var ua = navigator.userAgent.toLowerCase();
 var gameStarted = false;
+var reset = true;
 var playerHealth = 300;
 var defaultPlayerHealth = playerHealth;
 var boostedPlayerHealth = 600;
 var waves = 45;
-var difficultyMultiplier = 1;
-
-
-var ua = navigator.userAgent.toLowerCase();
 var healthAlreadyBoosted = false;
+var levelsPlayed = 0;
+var levelsWithBoostReset = [3,7,15,21,28,35,70,99];
+var levelsWithAutoHealth = [5,9,23,42,49,69,89];
+var autoPlayerHealthIncrease = 100;
+var difficultyMultiplier = 1;
 Game.playerHealth = playerHealth;
 Game.defaultPlayerHealth = defaultPlayerHealth;
 Game.difficultyMultiplier = difficultyMultiplier;
@@ -177,9 +180,19 @@ var playGame = function () {
 		board.add(new PlayerShip());
 		board.add(new Level(level1, winGame));
 		Game.playerHealth = defaultPlayerHealth;
+		if (levelsWithAutoHealth.includes(levelsPlayed))
+		{
+			Game.playerHealth = Game.playerHealth + autoPlayerHealthIncrease;
+		}
+		if (levelsWithBoostReset.includes(levelsPlayed))
+		{
+			healthAlreadyBoosted = false;
+		}
 		Game.setBoard(3, board);
-		Game.setBoard(5, new GamePoints(0));
-		Game.setBoard(6, new GameHealth(0));
+		if (reset == true) {
+			Game.setBoard(5, new GamePoints(0));
+			Game.setBoard(6, new GameHealth(0));
+		}
 	}, 500);
 };
 
@@ -191,6 +204,9 @@ var winGame = function () {
 	}
 	catch(error) {}
 	audio.win.play();
+	reset = false;
+	difficultyMultiplier = difficultyMultiplier * 1.5;
+	levelsPlayed = levelsPlayed + 1;
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32 || e.which == 37 || e.which == 39) {
@@ -202,8 +218,7 @@ var winGame = function () {
 			}, 1500);
 		}
 	});
-	difficultyMultiplier = difficultyMultiplier * 1.5;
-	console.info('WIN: ' + Game.points);
+	//console.info('WIN: ' + Game.points);
 };
 
 var loseGame = function () {
@@ -217,6 +232,9 @@ var loseGame = function () {
 	}
 	catch(error) {}
 	audio.lose.play();
+	difficultyMultiplier = 1;
+	reset = true;
+	levelsPlayed = 0;
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
 	$(document).keydown(function (e) {
 		if (e.which == 32 || e.which == 37 || e.which == 39) {
@@ -228,7 +246,7 @@ var loseGame = function () {
 			}, 1500);
 		}
 	});
-	console.info('LOSS: ' + Game.points);
+	//console.info('LOSS: ' + Game.points);
 };
 
 

@@ -1,6 +1,6 @@
 {
   "name": "invaders",
-  "version": "2020.05.15.13",
+  "version": "2020.05.30.14",
   "description": "Alien Invasion",
   "main": "index.html",
   "scripts": {
@@ -11,8 +11,8 @@
     "url": "git+https://github.com/eat-sleep-code/invaders.eat-sleep-code.com.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-minify": "^0.5.1",
     "grunt": "^1.1.0",

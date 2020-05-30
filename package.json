@@ -1,6 +1,6 @@
 {
   "name": "invaders",
-  "version": "2020.05.30.14",
+  "version": "2020.05.30.15",
   "description": "Alien Invasion",
   "main": "index.html",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eat-sleep-code/invaders.eat-sleep-code.com.git"
+    "url": "git+https://github.com/eat-sleep-code/alieninvasion.fun.git"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -35,7 +35,7 @@
   "author": " <eat-sleep-code />",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eat-sleep-code/invaders.eat-sleep-code.com/issues"
+    "url": "https://github.com/eat-sleep-code/alieninvasion.fun/issues"
   },
-  "homepage": "https://github.com/eat-sleep-code/invaders.eat-sleep-code.com#readme"
+  "homepage": "https://github.com/eat-sleep-code/alieninvasion.fun#readme"
 }

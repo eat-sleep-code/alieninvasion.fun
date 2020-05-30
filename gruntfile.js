@@ -68,7 +68,7 @@ module.exports = function (grunt) {
 		git_deploy: {
 			your_target: {
 				options: {
-					url: 'https://github.com/eat-sleep-code/invaders.eat-sleep-code.com.git',
+					url: 'https://github.com/eat-sleep-code/alieninvasion.fun.git',
 					branch: 'master'
 				},
 				src: '.'

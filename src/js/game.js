@@ -1,3 +1,5 @@
+require()
+
 var ua = navigator.userAgent.toLowerCase();
 var gameStarted = false;
 var reset = true;

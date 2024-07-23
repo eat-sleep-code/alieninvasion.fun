@@ -1,4 +1,4 @@
-var audio = { 
+const audio = { 
 	boom : new Audio('audio/boom.mp3'),
 	boss : new Audio('audio/boss.mp3'),
 	fire : new Audio('audio/fire.mp3'),

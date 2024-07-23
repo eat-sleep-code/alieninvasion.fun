@@ -4,8 +4,6 @@ module.exports = {
 	mode: 'production',
 	entry: {
 		'invaders': [
-			'./src/js/audio.js',
-            './src/js/engine.js',
             './src/js/game.js',
             './src/js/analytics.js'
         ]

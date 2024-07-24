@@ -14,7 +14,6 @@ npm install --verbose
 echo -e '\033[0;32m Running NPM scripts...\e[0m'
 npm run scss
 npm run pack
-npm run obfuscate
 
 
 #echo -e '\033[0;32m Copying audio...\e[0m'

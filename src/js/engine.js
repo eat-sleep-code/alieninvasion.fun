@@ -25,7 +25,7 @@ var bossLevel = false;
 }());
   
 
-const Game = new function() {                                                                  
+var Game = new function() {                                                                  
   var boards = [];
 
   // Game Initialization
@@ -121,7 +121,7 @@ const Game = new function() {
 };
 
 
-const SpriteSheet = new function() {
+var SpriteSheet = new function() {
   this.map = { }; 
 
   this.load = function(spriteData,callback) { 
@@ -145,7 +145,7 @@ const SpriteSheet = new function() {
   return this;
 };
 
-const TitleScreen = function TitleScreen(title,subtitle,callback) {
+var TitleScreen = function TitleScreen(title,subtitle,callback) {
   var up = false;
   this.step = function(dt) {
 	if(!Game.keys['fire']) up = true;
@@ -165,7 +165,7 @@ const TitleScreen = function TitleScreen(title,subtitle,callback) {
   };
 };
 
-const SplashScreen = function SplashScreen(imagePath, textline1, textline2, callback) {
+var SplashScreen = function SplashScreen(imagePath, textline1, textline2, callback) {
 	var up = false;
 	this.step = function (dt) {
 		if (!Game.keys['fire']) up = true;
@@ -190,7 +190,7 @@ const SplashScreen = function SplashScreen(imagePath, textline1, textline2, call
 };
 
 
-const GameBoard = function() {
+var GameBoard = function() {
   var board = this;
 
   // The current list of objects
@@ -281,7 +281,7 @@ const GameBoard = function() {
 
 };
 
-const Sprite = function() { };
+var Sprite = function() { };
 
 Sprite.prototype.setup = function(sprite,props) {
   this.sprite = sprite;
@@ -308,7 +308,7 @@ Sprite.prototype.hit = function(damage) {
 };
 
 
-const Level = function(levelData,callback) {
+var Level = function(levelData,callback) {
   this.levelData = [];
   for(var i =0; i<levelData.length; i++) {
 	this.levelData.push(Object.create(levelData[i]));
@@ -372,7 +372,7 @@ Level.prototype.step = function(dt) {
 Level.prototype.draw = function(ctx) { };
 
 
-const TouchControls = function() {
+var TouchControls = function() {
 
   var gutterWidth = 10;
   var unitWidth = Game.width/5;
@@ -454,7 +454,7 @@ const TouchControls = function() {
 };
 
 
-const GamePoints = function() {
+var GamePoints = function() {
 	if (reset == true)
 	{
 		Game.points = 0;
@@ -476,7 +476,7 @@ const GamePoints = function() {
 
 
 
-const GameHealth = function () {
+var GameHealth = function () {
 	if (reset == true)
 	{
 		Game.playerHealth = Game.defaultPlayerHealth;

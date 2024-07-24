@@ -1,4 +1,4 @@
-const audio = require('./audio.js');
+const Audio = require('./audio.js');
 const Game = require('./engine.js')
 
 var ua = navigator.userAgent.toLowerCase();
@@ -202,11 +202,11 @@ var playGame = function () {
 var winGame = function () {
 	try {
 		bossLevel = false;
-		audio.boss.pause();
-		audio.boss.currentTime = 0;
+		Audio.boss.pause();
+		Audio.boss.currentTime = 0;
 	}
 	catch(error) {}
-	audio.win.play();
+	Audio.win.play();
 	reset = false;
 	difficultyMultiplier = difficultyMultiplier * 1.5;
 	levelsPlayed = levelsPlayed + 1;
@@ -228,13 +228,13 @@ var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	try {
 		bossLevel = false;
-		audio.boss.pause();
-		audio.boss.currentTime = 0;
-		audio.start.pause();
-		audio.start.currentTime = 0;
+		Audio.boss.pause();
+		Audio.boss.currentTime = 0;
+		Audio.start.pause();
+		Audio.start.currentTime = 0;
 	}
 	catch(error) {}
-	audio.lose.play();
+	Audio.lose.play();
 	difficultyMultiplier = 1;
 	reset = true;
 	levelsPlayed = 0;
@@ -343,7 +343,7 @@ var PlayerShip = function () {
 		if (Game.keys['fire'] && this.reload < 0) {
 			Game.keys['fire'] = false;
 			this.reload = this.reloadTime;
-			audio.fire.play();
+			Audio.fire.play();
 			this.board.add(new PlayerMissile(this.x, this.y + this.h / 2));
 			this.board.add(new PlayerMissile(this.x + this.w, this.y + this.h / 2));
 		}
@@ -353,7 +353,7 @@ var PlayerShip = function () {
 PlayerShip.boost = function () {
 	//console.log("Boost!");
 	if (healthAlreadyBoosted == false) {
-		audio.power.play();
+		Audio.power.play();
 		playerHealth = boostedPlayerHealth;
 		healthAlreadyBoosted = true;
 		Game.playerHealth = playerHealth;
@@ -386,7 +386,7 @@ PlayerShip.prototype.hit = function (damage) {
 	if (isNaN(damage) == false) {
 		playerHealth = playerHealth - damage;
 		//console.log("OUCH!  {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
-		audio.hit.play();
+		Audio.hit.play();
 		Game.playerHealth = playerHealth;
 	}
 	if (playerHealth <= 0) {
@@ -475,7 +475,7 @@ Enemy.prototype.hit = function (damage) {
 		if (this.board.remove(this)) {
 			Game.points += this.points || 100;
 			this.board.add(new Explosion(this.x + this.w / 2, this.y + this.h / 2));
-			audio.boom.play();
+			Audio.boom.play();
 		}
 	}
 };
@@ -529,7 +529,7 @@ function startAudio() {
 	if (gameStarted == false) 
 	{
 		try {
-			audio.start.play();
+			Audio.start.play();
 			gameStarted = true;
 			playGame();
 		}

@@ -8,7 +8,6 @@
     "url": "git+https://github.com/eat-sleep-code/alieninvasion.fun.git"
   },
   "devDependencies": {
-    "javascript-obfuscator": "^4.1.1",
     "jquery": "^3.7.1",
     "sass": "^1.77.8",
 		"webpack": "^5.93.0",
@@ -29,7 +28,6 @@
   "homepage": "https://github.com/eat-sleep-code/alieninvasion.fun#readme",
   "scripts": {
 		"scss": "sass src/css/game.css:dist/css/app.min.css --style compressed",
-		"pack": "webpack",
-    "obfuscate": "javascript-obfuscator src/js/invaders.min.js --output dist/js/app.min.js"
+		"pack": "webpack"
 	}
 }

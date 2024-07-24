@@ -9,8 +9,8 @@ module.exports = {
         ]
 	},
 	output: {
-		filename: '[name].min.js',
-		path: __dirname + '/src/js/',
+		filename: 'app.min.js',
+		path: __dirname + '/dist/js/',
 		hashFunction: 'xxhash64'
 	},
 	optimization: {

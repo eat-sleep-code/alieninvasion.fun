@@ -1,33 +1,23 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path');
+const ConcatenationPlugin = require('./src/js/plugin-concatenation.js');
 
 module.exports = {
 	mode: 'production',
-	entry: {
-		'invaders': [
-			'./src/js/audio.js',
-            './src/js/engine.js',
-            './src/js/game.js',
-            './src/js/analytics.js'
-        ]
-	},
+	entry: './src/js/game.js',
 	output: {
-		filename: 'app.min.js',
-		path: __dirname + '/dist/js/',
-		hashFunction: 'xxhash64'
+		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'dist/js'),
 	},
-	optimization: {
-		mangleExports: false,
-		minimize: true,
-		minimizer: [
-			new TerserPlugin({
-				terserOptions: {
-					mangle: false,
-					format: {
-						comments: false
-					}
-				},
-				extractComments: false
-			})
-		]
-	}
-  };
+	plugins: [
+		new ConcatenationPlugin({
+			filesToConcat: [
+				'./src/js/audio.js',
+				'./src/js/engine.js',
+				'./src/js/game.js',
+				'./src/js/analytics.js'
+			],
+			outputPath: '.',
+			fileName: 'app.min.js'
+		})
+	]
+};

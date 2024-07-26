@@ -1,5 +1,4 @@
 const Audio = require('./audio.js');
-const Game = require('./engine.js')
 
 var ua = navigator.userAgent.toLowerCase();
 var gameStarted = false;

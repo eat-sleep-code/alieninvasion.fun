@@ -1,4 +1,3 @@
-const Game = require('./game.js')
 
 var boostPattern = '';
 var bossLevel = false;

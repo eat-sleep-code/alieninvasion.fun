@@ -1,5 +1,3 @@
-const Audio = require('./audio.js');
-
 var ua = navigator.userAgent.toLowerCase();
 var gameStarted = false;
 var reset = true;

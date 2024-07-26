@@ -13,7 +13,7 @@ npm install --verbose
 
 echo -e '\033[0;32m Running NPM scripts...\e[0m'
 npm run scss
-npm run pack
+npm run concat
 
 
 #echo -e '\033[0;32m Copying audio...\e[0m'
@@ -26,6 +26,11 @@ npm run pack
 #rm -Rf dist/images
 #mkdir -p dist/images
 #cp -r src/images/*.* dist/images/
+
+
+#echo -e '\033[0;32m Copying main file...\e[0m'
+#rm -f dist/index.html
+#cp -r src/index.html dist/
 
 
 # If enabling add ?v={{version}} to any URLs you want to bust

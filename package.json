@@ -1,6 +1,6 @@
 {
   "name": "invaders",
-  "version": "2024.07.22.21",
+  "version": "2024.07.26.13",
   "description": "Alien Invasion",
   "main": "index.html",
   "repository": {
@@ -9,9 +9,7 @@
   },
   "devDependencies": {
     "jquery": "^3.7.1",
-    "sass": "^1.77.8",
-		"webpack": "^5.93.0",
-		"webpack-cli": "^5.1.4"
+    "sass": "^1.77.8"
   },
   "keywords": [
     "game",
@@ -28,6 +26,6 @@
   "homepage": "https://github.com/eat-sleep-code/alieninvasion.fun#readme",
   "scripts": {
 		"scss": "sass src/css/game.css:dist/css/app.min.css --style compressed",
-		"pack": "webpack"
+		"concat": "node src/js/concatenation.js"
 	}
 }

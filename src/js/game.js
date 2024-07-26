@@ -199,11 +199,11 @@ var playGame = function () {
 var winGame = function () {
 	try {
 		bossLevel = false;
-		Audio.boss.pause();
-		Audio.boss.currentTime = 0;
+		audio.boss.pause();
+		audio.boss.currentTime = 0;
 	}
 	catch(error) {}
-	Audio.win.play();
+	audio.win.play();
 	reset = false;
 	difficultyMultiplier = difficultyMultiplier * 1.5;
 	levelsPlayed = levelsPlayed + 1;
@@ -225,13 +225,13 @@ var loseGame = function () {
 	playerHealth = defaultPlayerHealth;
 	try {
 		bossLevel = false;
-		Audio.boss.pause();
-		Audio.boss.currentTime = 0;
-		Audio.start.pause();
-		Audio.start.currentTime = 0;
+		audio.boss.pause();
+		audio.boss.currentTime = 0;
+		audio.start.pause();
+		audio.start.currentTime = 0;
 	}
 	catch(error) {}
-	Audio.lose.play();
+	audio.lose.play();
 	difficultyMultiplier = 1;
 	reset = true;
 	levelsPlayed = 0;
@@ -340,7 +340,7 @@ var PlayerShip = function () {
 		if (Game.keys['fire'] && this.reload < 0) {
 			Game.keys['fire'] = false;
 			this.reload = this.reloadTime;
-			Audio.fire.play();
+			audio.fire.play();
 			this.board.add(new PlayerMissile(this.x, this.y + this.h / 2));
 			this.board.add(new PlayerMissile(this.x + this.w, this.y + this.h / 2));
 		}
@@ -350,7 +350,7 @@ var PlayerShip = function () {
 PlayerShip.boost = function () {
 	//console.log("Boost!");
 	if (healthAlreadyBoosted == false) {
-		Audio.power.play();
+		audio.power.play();
 		playerHealth = boostedPlayerHealth;
 		healthAlreadyBoosted = true;
 		Game.playerHealth = playerHealth;
@@ -383,7 +383,7 @@ PlayerShip.prototype.hit = function (damage) {
 	if (isNaN(damage) == false) {
 		playerHealth = playerHealth - damage;
 		//console.log("OUCH!  {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
-		Audio.hit.play();
+		audio.hit.play();
 		Game.playerHealth = playerHealth;
 	}
 	if (playerHealth <= 0) {
@@ -472,7 +472,7 @@ Enemy.prototype.hit = function (damage) {
 		if (this.board.remove(this)) {
 			Game.points += this.points || 100;
 			this.board.add(new Explosion(this.x + this.w / 2, this.y + this.h / 2));
-			Audio.boom.play();
+			audio.boom.play();
 		}
 	}
 };
@@ -526,7 +526,7 @@ function startAudio() {
 	if (gameStarted == false) 
 	{
 		try {
-			Audio.start.play();
+			audio.start.play();
 			gameStarted = true;
 			playGame();
 		}
@@ -537,5 +537,4 @@ function startAudio() {
 window.addEventListener("load", function () {
 	Game.initialize("game", sprites, startGame);
 });
-
 

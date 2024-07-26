@@ -44,6 +44,6 @@ if [ "$release" == "release" ]; then
     git push origin develop:master --force
     git tag -a "$version" -m "$version: $commitMessage"
     git push -u origin "$version"
-    firebase login --reauth
+    # firebase login --reauth
     firebase deploy
 fi

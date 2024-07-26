@@ -1,4 +1,3 @@
-
 var boostPattern = '';
 var bossLevel = false;
 
@@ -506,4 +505,3 @@ var GameHealth = function () {
 	};
 	this.step = function (dt) { };
 };
-

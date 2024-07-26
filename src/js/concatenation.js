@@ -16,6 +16,6 @@ filesToConcat.forEach((fileName) => {
 	concatenatedContent += fs.readFileSync(filePath, 'utf-8') + '\n';
 });
 
-concatenatedContent = concatenatedContent.replace(/[\r\n\t]/g, '').replace(/ +(?= )/g,'');;
+//concatenatedContent = concatenatedContent.replace(/[\r\n\t]/g, '').replace(/ +(?= )/g,'');;
 fs.writeFileSync(outputPath, concatenatedContent, 'utf-8');
 console.log('Files concatenated successfully into', outputPath);

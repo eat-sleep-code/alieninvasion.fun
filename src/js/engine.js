@@ -11,7 +11,7 @@ var bossLevel = false;
  
 	if (!window.requestAnimationFrame)
 		window.requestAnimationFrame = function(callback, element) {
-			var currTime = new Date().getTime();
+			var currTime = Date().getTime();
 			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
 			var id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
 			lastTime = currTime + timeToCall;
@@ -25,7 +25,7 @@ var bossLevel = false;
 }());
   
 
-var Game = new function() {                                                                  
+var Game = function() {                                                                  
   var boards = [];
 
   // Game Initialization
@@ -53,7 +53,7 @@ var Game = new function() {
 	this.loop(); 
 
 	if(this.mobile) {
-	  this.setBoard(4,new TouchControls());
+	  this.setBoard(4,TouchControls());
 	}
 
 	SpriteSheet.load(sprite_data,callback);
@@ -81,11 +81,11 @@ var Game = new function() {
   };
 
 
-  var lastTime = new Date().getTime();
+  var lastTime = Date().getTime();
   var maxTime = 1/30;
   // Game Loop
   this.loop = function() { 
-	var curTime = new Date().getTime();
+	var curTime = Date().getTime();
 	requestAnimationFrame(Game.loop);
 	var dt = (curTime - lastTime)/1000;
 	if(dt > maxTime) { dt = maxTime; }
@@ -121,12 +121,12 @@ var Game = new function() {
 };
 
 
-var SpriteSheet = new function() {
+var SpriteSheet = function() {
   this.map = { }; 
 
   this.load = function(spriteData,callback) { 
 	this.map = spriteData;
-	this.image = new Image();
+	this.image = Image();
 	this.image.onload = callback;
 	this.image.src = 'images/sprites.png';
   };
@@ -148,8 +148,8 @@ var SpriteSheet = new function() {
 var TitleScreen = function TitleScreen(title,subtitle,callback) {
   var up = false;
   this.step = function(dt) {
-	if(!Game.keys['fire']) up = true;
-	if(up && Game.keys['fire'] && callback) callback();
+	if(!Game.keys.fire) up = true;
+	if(up && Game.keys.fire && callback) callback();
   };
 
   this.draw = function(ctx) {
@@ -168,14 +168,14 @@ var TitleScreen = function TitleScreen(title,subtitle,callback) {
 var SplashScreen = function SplashScreen(imagePath, textline1, textline2, callback) {
 	var up = false;
 	this.step = function (dt) {
-		if (!Game.keys['fire']) up = true;
-		if (up && Game.keys['fire'] && callback) callback();
+		if (!Game.keys.fire) up = true;
+		if (up && Game.keys.fire && callback) callback();
 	};
 
 	this.draw = function (ctx) {
 		ctx.fillStyle = "#FFFFFF";
 
-		var splashImage = new Image();
+		var splashImage = Image();
 		splashImage.src = imagePath;
 		ctx.drawImage(splashImage, Game.width / 2 - 375 / 2, Game.height / 2 - 187, 375, 375);
 
@@ -197,7 +197,7 @@ var GameBoard = function() {
   this.objects = [];
   this.cnt = {};
 
-  // Add a new object to the object list
+  // Add a object to the object list
   this.add = function(obj) { 
 	obj.board=this; 
 	this.objects.push(obj); 
@@ -335,8 +335,8 @@ Level.prototype.step = function(dt) {
 	  var enemy = enemies[curShip[3]],
 		  override = curShip[4];
 
-	  // Add a new enemy with the blueprint and override
-	  this.board.add(new Enemy(enemy,override));
+	  // Add a enemy with the blueprint and override
+	  this.board.add(Enemy(enemy,override));
 
 	  // Increment the start time by the gap
 	  curShip[0] += curShip[2];
@@ -397,9 +397,9 @@ var TouchControls = function() {
   this.draw = function(ctx) {
 	ctx.save();
 	var yLoc = Game.height - unitWidth;
-	this.drawSquare(ctx, gutterWidth, yLoc, "\u140A", Game.keys['left']);
-	this.drawSquare(ctx, unitWidth + gutterWidth, yLoc, "\u1405", Game.keys['right']);
-	this.drawSquare(ctx, 4 * unitWidth, yLoc, "\u2739", Game.keys['fire']);
+	this.drawSquare(ctx, gutterWidth, yLoc, "\u140A", Game.keys.left);
+	this.drawSquare(ctx, unitWidth + gutterWidth, yLoc, "\u1405", Game.keys.right);
+	this.drawSquare(ctx, 4 * unitWidth, yLoc, "\u2739", Game.keys.fire);
 	ctx.restore();
   };
 
@@ -410,18 +410,18 @@ var TouchControls = function() {
 	var x;
 	
 	e.preventDefault();
-	Game.keys['left'] = false;
-	Game.keys['right'] = false;
+	Game.keys.left = false;
+	Game.keys.right = false;
 	for(var i=0;i<e.targetTouches.length;i++) {
 	  touch = e.targetTouches[i];
 	  x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
 	  if(x < unitWidth) {
 		boostPattern = boostPattern.concat('l');
-		Game.keys['left'] = true;
+		Game.keys.left = true;
 	  } 
 	  if(x > unitWidth && x < 2*unitWidth) {
-		boostPattern = boostPattern.concat('r')
-		Game.keys['right'] = true;
+		boostPattern = boostPattern.concat('r');
+		Game.keys.right = true;
 	  } 
 
 	  //console.log(boostPattern);
@@ -436,7 +436,7 @@ var TouchControls = function() {
 		x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
 		if(x > 4 * unitWidth) {
 		  boostPattern = boostPattern.concat('u');
-		  Game.keys['fire'] = (e.type == 'touchstart');
+		  Game.keys.fire = (e.type == 'touchstart');
 		}
 	  }
 	}

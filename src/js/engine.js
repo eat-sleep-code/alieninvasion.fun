@@ -31,8 +31,8 @@ var Game = new function() {
   // Game Initialization
   this.initialize = function(canvasElementId,sprite_data,callback) {
 	this.canvas = document.getElementById(canvasElementId);
-	var width = $(this.canvas).width();
-	var height = $(this.canvas).height();
+	var width = this.canvas.width;
+	var height = this.canvas.height;
 	
 	this.canvas.width = width;
 	this.canvas.height = height;
@@ -469,7 +469,8 @@ var GamePoints = function() {
 		while(i-- > 0) { zeros += "0"; }
 		ctx.fillText(zeros + txt,10,20);
 		ctx.restore();
-		$('#Score').val(Game.points);
+		//document.getElementById(Score)
+		//$('#Score').val(Game.points);
 	};
 	this.step = function(dt) { };
 };

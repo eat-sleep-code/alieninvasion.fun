@@ -1,6 +1,6 @@
 {
   "name": "invaders",
-  "version": "2024.07.26.17",
+  "version": "2024.07.26.18",
   "description": "Alien Invasion",
   "main": "index.html",
   "repository": {
@@ -8,7 +8,6 @@
     "url": "git+https://github.com/eat-sleep-code/alieninvasion.fun.git"
   },
   "devDependencies": {
-    "jquery": "^3.7.1",
     "sass": "^1.77.8"
   },
   "keywords": [

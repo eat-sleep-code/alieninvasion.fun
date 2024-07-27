@@ -17,13 +17,11 @@ Game.difficultyMultiplier = difficultyMultiplier;
 
 function keyPressEvent(e) {
 	var keycode;
-	if (window.event) keycode = window.event.keyCode;
-	else if (e) keycode = e.which;
-	var e = e || window.event;
-	if (keycode == 38 || 40) {
+	keycode = e.key;
+	if (keycode == 'ArrowUp' || 'ArrowDown') {
 		e.preventDefault();
 	}
-	if (keycode == 65 && e.ctrlKey && e.shiftKey) {
+	if (keycode == 'a' && keycode == 'Shift' && keycode == 'Control') {
 		PlayerShip.boost();
 	}
 }
@@ -98,8 +96,8 @@ var startGame = function () {
 		Game.setBoard(1, new Starfield(50, 0.6, 100));
 		Game.setBoard(2, new Starfield(100, 1.0, 50));
 	}
-	//console.log($(window).width());
-	if ($(window).width() <= 576) {
+
+	if (window.innerWidth <= 576) {
 		Game.setBoard(3, new SplashScreen('images/splash-mobile.svg',
 									"",
 									"",
@@ -161,7 +159,8 @@ do {
 	//console.log("Gap: " + levelGapVariant);
 	//console.log("Movement: " + levelMovementVariant);
 
-	var canvasWidth = $('#game').width();
+	var gameCanvas = document.getElementById('game');
+	var canvasWidth = gameCanvas.width;
 	//console.log('Canvas Width: ' + canvasWidth);
 	var levelXPositionVariant = Math.floor(Math.random() * (canvasWidth - 10 + 1) + 10);
 	//var levelXPositionVariant = Math.floor(Math.random() * (400 - 10 + 1) + 10);
@@ -208,8 +207,8 @@ var winGame = function () {
 	difficultyMultiplier = difficultyMultiplier * 1.5;
 	levelsPlayed = levelsPlayed + 1;
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
-	$(document).keydown(function (e) {
-		if (e.which == 32 || e.which == 37 || e.which == 39) {
+	document.addEventListener('keydown', function(e) {
+		if (e.key == ' ' || e.key == 'ArrowLeft' || e.key == 'ArrorRight') {
 			setTimeout(function(){
 				try {
 					e.preventDefault();
@@ -236,8 +235,8 @@ var loseGame = function () {
 	reset = true;
 	levelsPlayed = 0;
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
-	$(document).keydown(function (e) {
-		if (e.which == 32 || e.which == 37 || e.which == 39) {
+	document.addEventListener('keydown', function(e) {
+		if (e.key == ' ' || e.key == 'ArrowLeft' || e.key == 'ArrorRight') {
 			setTimeout(function(){
 				try {
 					e.preventDefault();
@@ -382,12 +381,10 @@ PlayerShip.prototype.type = OBJECT_PLAYER;
 PlayerShip.prototype.hit = function (damage) {
 	if (isNaN(damage) == false) {
 		playerHealth = playerHealth - damage;
-		//console.log("OUCH!  {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
 		audio.hit.play();
 		Game.playerHealth = playerHealth;
 	}
 	if (playerHealth <= 0) {
-		//console.log("I CAN'T TAKE ANYMORE... {Health: " + playerHealth + ", Score " + $('#Score').val() + "}");
 		loseGame();
 	}
 };
@@ -515,11 +512,7 @@ Explosion.prototype.step = function (dt) {
 };
 
 
-$(document).ready(function() {
-	$('#game').click(function() {
-		startAudio();
-	});	
-});
+document.getElementById('game').addEventListener('click', startAudio);
 document.addEventListener('touchend', startAudio);
 
 function startAudio() {

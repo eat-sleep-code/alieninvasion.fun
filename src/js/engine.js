@@ -31,13 +31,16 @@ var Game = new function() {
   // Game Initialization
   this.initialize = function(canvasElementId,sprite_data,callback) {
 	this.canvas = document.getElementById(canvasElementId);
+	var width = this.canvas.width;
+	var height = this.canvas.height;
 
 	this.playerOffset = 20;
 	this.canvasMultiplier= 1;
 	this.setupMobile();
 
-	this.canvas.style.height = window.innerHeight;
-	this.canvas.style.width = window.innerHeight * 0.66;
+	this.width = this.canvas.width;
+	this.height= this.canvas.height;
+	//console.log(this.width, this.height);
 
 	this.ctx = this.canvas.getContext && this.canvas.getContext('2d');
 	if(!this.ctx) { return alert("Please upgrade your browser!"); }

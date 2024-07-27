@@ -39,6 +39,8 @@ var Game = new function() {
 	this.width = window.innerHeight * 0.66; //this.canvas.width;
 	this.height= window.innerHeight;
 	console.log(this.width, this.height);
+	this.canvas.width = this.width;
+	this.canvas.height = this.height;
 
 	this.ctx = this.canvas.getContext && this.canvas.getContext('2d');
 	if(!this.ctx) { return alert("Please upgrade your browser!"); }

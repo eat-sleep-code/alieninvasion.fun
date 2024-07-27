@@ -36,8 +36,8 @@ var Game = new function() {
 	this.canvasMultiplier= 1;
 	this.setupMobile();
 
-	this.canvas.height = window.innerHeight;
-	this.canvas.width = window.innerHeight * 0.66;
+	this.canvas.style.height = window.innerHeight;
+	this.canvas.style.width = window.innerHeight * 0.66;
 
 	this.ctx = this.canvas.getContext && this.canvas.getContext('2d');
 	if(!this.ctx) { return alert("Please upgrade your browser!"); }

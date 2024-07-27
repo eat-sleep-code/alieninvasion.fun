@@ -118,7 +118,7 @@ var Game = new function() {
 	this.canvas.style.height = "100vh";
   };
 
-};
+}();
 
 
 var SpriteSheet = new function() {
@@ -143,13 +143,13 @@ var SpriteSheet = new function() {
   };
 
   return this;
-};
+}();
 
 var TitleScreen = function TitleScreen(title,subtitle,callback) {
   var up = false;
   this.step = function(dt) {
-	if(!Game.keys['fire']) up = true;
-	if(up && Game.keys['fire'] && callback) callback();
+	if(!Game.keys.fire) up = true;
+	if(up && Game.keys.fire && callback) callback();
   };
 
   this.draw = function(ctx) {
@@ -168,8 +168,8 @@ var TitleScreen = function TitleScreen(title,subtitle,callback) {
 var SplashScreen = function SplashScreen(imagePath, textline1, textline2, callback) {
 	var up = false;
 	this.step = function (dt) {
-		if (!Game.keys['fire']) up = true;
-		if (up && Game.keys['fire'] && callback) callback();
+		if (!Game.keys.fire) up = true;
+		if (up && Game.keys.fire && callback) callback();
 	};
 
 	this.draw = function (ctx) {
@@ -397,9 +397,9 @@ var TouchControls = function() {
   this.draw = function(ctx) {
 	ctx.save();
 	var yLoc = Game.height - unitWidth;
-	this.drawSquare(ctx, gutterWidth, yLoc, "\u140A", Game.keys['left']);
-	this.drawSquare(ctx, unitWidth + gutterWidth, yLoc, "\u1405", Game.keys['right']);
-	this.drawSquare(ctx, 4 * unitWidth, yLoc, "\u2739", Game.keys['fire']);
+	this.drawSquare(ctx, gutterWidth, yLoc, "\u140A", Game.keys.left);
+	this.drawSquare(ctx, unitWidth + gutterWidth, yLoc, "\u1405", Game.keys.right);
+	this.drawSquare(ctx, 4 * unitWidth, yLoc, "\u2739", Game.keys.fire);
 	ctx.restore();
   };
 
@@ -410,18 +410,18 @@ var TouchControls = function() {
 	var x;
 	
 	e.preventDefault();
-	Game.keys['left'] = false;
-	Game.keys['right'] = false;
+	Game.keys.left = false;
+	Game.keys.right = false;
 	for(var i=0;i<e.targetTouches.length;i++) {
 	  touch = e.targetTouches[i];
 	  x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
 	  if(x < unitWidth) {
 		boostPattern = boostPattern.concat('l');
-		Game.keys['left'] = true;
+		Game.keys.left = true;
 	  } 
 	  if(x > unitWidth && x < 2*unitWidth) {
-		boostPattern = boostPattern.concat('r')
-		Game.keys['right'] = true;
+		boostPattern = boostPattern.concat('r');
+		Game.keys.right = true;
 	  } 
 
 	  //console.log(boostPattern);
@@ -436,7 +436,7 @@ var TouchControls = function() {
 		x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
 		if(x > 4 * unitWidth) {
 		  boostPattern = boostPattern.concat('u');
-		  Game.keys['fire'] = (e.type == 'touchstart');
+		  Game.keys.fire = (e.type == 'touchstart');
 		}
 	  }
 	}

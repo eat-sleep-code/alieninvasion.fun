@@ -16,6 +16,23 @@ filesToConcat.forEach((fileName) => {
 	concatenatedContent += fs.readFileSync(filePath, 'utf-8') + '\n';
 });
 
-concatenatedContent = concatenatedContent.replace(/ +(?= )/g,'');;
+
+// Remove Comments
+concatenatedContent = concatenatedContent.replace(/\/\*[\s\S]*?\*\/|(?<=[^:])\/\/.*|^\/\/.*/g,'');
+
+// Remove Tabs
+concatenatedContent = concatenatedContent.replace(/\t/g, '');
+
+// Remove Leading Spaces
+concatenatedContent = concatenatedContent.replace(/^ +/gm,'');
+
+// Remove Repeated Spaces
+concatenatedContent = concatenatedContent.replace(/ +(?= )/g,'');
+
+// Remove Empty Lines
+concatenatedContent = concatenatedContent.replace(/^\s*$(?:\r\n?|\n)/gm,'');
+
+
+
 fs.writeFileSync(outputPath, concatenatedContent, 'utf-8');
 console.log('Files concatenated successfully into', outputPath);

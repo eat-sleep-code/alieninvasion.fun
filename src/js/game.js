@@ -325,8 +325,8 @@ var PlayerShip = function () {
 	this.y = Game.height - Game.playerOffset - this.h;
 
 	this.step = function (dt) {
-		if (Game.keys['left']) { this.vx = -this.maxVel; }
-		else if (Game.keys['right']) { this.vx = this.maxVel; }
+		if (Game.keys.left) { this.vx = -this.maxVel; }
+		else if (Game.keys.right) { this.vx = this.maxVel; }
 		else { this.vx = 0; }
 
 		this.x += this.vx * dt;
@@ -337,8 +337,8 @@ var PlayerShip = function () {
 		}
 
 		this.reload -= dt;
-		if (Game.keys['fire'] && this.reload < 0) {
-			Game.keys['fire'] = false;
+		if (Game.keys.fire && this.reload < 0) {
+			Game.keys.fire = false;
 			this.reload = this.reloadTime;
 			audio.fire.play();
 			this.board.add(new PlayerMissile(this.x, this.y + this.h / 2));
@@ -374,7 +374,7 @@ PlayerShip.boost = function () {
 		}
 	}
 	
-}
+};
 
 PlayerShip.prototype = new Sprite();
 PlayerShip.prototype.type = OBJECT_PLAYER;
@@ -488,7 +488,7 @@ EnemyMissile.prototype.type = OBJECT_ENEMY_PROJECTILE;
 
 EnemyMissile.prototype.step = function (dt) {
 	this.y += this.vy * dt;
-	var collision = this.board.collide(this, OBJECT_PLAYER)
+	var collision = this.board.collide(this, OBJECT_PLAYER);
 	if (collision) {
 		collision.hit(this.damage);
 		this.board.remove(this);

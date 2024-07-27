@@ -36,8 +36,8 @@ var Game = new function() {
 	this.canvasMultiplier= 1;
 	this.setupMobile();
 
-	this.width = this.canvas.width;
-	this.height= this.canvas.height;
+	this.width = window.height * 0.66; //this.canvas.width;
+	this.height= window.height;
 	console.log(this.width, this.height);
 
 	this.ctx = this.canvas.getContext && this.canvas.getContext('2d');

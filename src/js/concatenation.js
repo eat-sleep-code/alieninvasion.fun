@@ -32,7 +32,8 @@ concatenatedContent = concatenatedContent.replace(/ +(?= )/g,'');
 // Remove Empty Lines
 concatenatedContent = concatenatedContent.replace(/^\s*$(?:\r\n?|\n)/gm,'');
 
-
+// Remove Line Breaks
+concatenatedContent = concatenatedContent.replace(/(\r\n|\n|\r)/gm, '');
 
 fs.writeFileSync(outputPath, concatenatedContent, 'utf-8');
 console.log('Files concatenated successfully into', outputPath);

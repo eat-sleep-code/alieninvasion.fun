@@ -434,6 +434,7 @@ var TouchControls = function() {
 		if(x > 4 * unitWidth) {
 		  boostPattern = boostPattern.concat('u');
 		  Game.keys.fire = (e.type == 'touchstart');
+		  console.log(Game.keys.fire, e.type)
 		}
 	  }
 	}

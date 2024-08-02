@@ -36,7 +36,12 @@ var Game = new function() {
 	this.canvasMultiplier= 1;
 	this.setupMobile();
 
-	this.width = window.innerWidth;
+	if (window.innerWidth > window.innerHeight) {
+		this.width = window.innerHeight * 0.66;
+	}
+	else {
+		this.width = window.innerWidth;
+	}
 	this.height= window.innerHeight;
 	console.log(this.width, this.height);
 	this.canvas.width = this.width;
@@ -432,12 +437,10 @@ var TouchControls = function() {
 	  for(i=0;i<e.changedTouches.length;i++) {
 		touch = e.changedTouches[i];
 		x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
-		console.log('Unchecked: ', Game.keys.fire, x, (4 * unitWidth));
-	  
+		
 		if(x > (4 * unitWidth)) {
 		  boostPattern = boostPattern.concat('u');
 		  Game.keys.fire = (e.type == 'touchstart');
-		  console.log('Checked: ', Game.keys.fire, x, (4 * unitWidth));
 		}
 	  }
 	}

@@ -434,7 +434,7 @@ var TouchControls = function() {
 		x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
 		console.log('Unchecked: ', Game.keys.fire, e.type, x, unitWidth);
 	  
-		if(x > 4 * unitWidth) {
+		if(x > (4 * unitWidth)) {
 		  boostPattern = boostPattern.concat('u');
 		  Game.keys.fire = (e.type == 'touchstart');
 		  console.log('Checked: ', Game.keys.fire, e.type, x, unitWidth);

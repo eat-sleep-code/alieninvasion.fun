@@ -36,7 +36,7 @@ var Game = new function() {
 	this.canvasMultiplier= 1;
 	this.setupMobile();
 
-	this.width = window.innerHeight * 0.66; //this.canvas.width;
+	this.width = window.innerWidth;
 	this.height= window.innerHeight;
 	//console.log(this.width, this.height);
 	this.canvas.width = this.width;

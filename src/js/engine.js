@@ -426,7 +426,8 @@ var TouchControls = function() {
 		PlayerShip.boost();
 	  }
 	}
-
+	
+	console.log('Unchecked: ', Game.keys.fire, e.type)
 	if(e.type == 'touchstart' || e.type == 'touchend') {
 	  for(i=0;i<e.changedTouches.length;i++) {
 		touch = e.changedTouches[i];
@@ -434,7 +435,7 @@ var TouchControls = function() {
 		if(x > 4 * unitWidth) {
 		  boostPattern = boostPattern.concat('u');
 		  Game.keys.fire = (e.type == 'touchstart');
-		  console.log(Game.keys.fire, e.type)
+		  console.log('Checked: ', Game.keys.fire, e.type)
 		}
 	  }
 	}

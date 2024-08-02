@@ -427,15 +427,17 @@ var TouchControls = function() {
 	  }
 	}
 	
-	console.log('Unchecked: ', Game.keys.fire, e.type);
+	
 	if (e.type == 'touchstart' || e.type == 'touchend') {
 	  for(i=0;i<e.changedTouches.length;i++) {
 		touch = e.changedTouches[i];
 		x = touch.pageX / Game.canvasMultiplier - Game.canvas.offsetLeft;
+		console.log('Unchecked: ', Game.keys.fire, e.type, x, unitWidth);
+	  
 		if(x > 4 * unitWidth) {
 		  boostPattern = boostPattern.concat('u');
 		  Game.keys.fire = (e.type == 'touchstart');
-		  console.log('Checked: ', Game.keys.fire, e.type);
+		  console.log('Checked: ', Game.keys.fire, e.type, x, unitWidth);
 		}
 	  }
 	}

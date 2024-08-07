@@ -15,6 +15,12 @@ Game.playerHealth = playerHealth;
 Game.defaultPlayerHealth = defaultPlayerHealth;
 Game.difficultyMultiplier = difficultyMultiplier;
 
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 function keyPressEvent(e) {
 	var keycode;
 	keycode = e.key;
@@ -207,15 +213,8 @@ var winGame = function () {
 	difficultyMultiplier = difficultyMultiplier * 1.5;
 	levelsPlayed = levelsPlayed + 1;
 	Game.setBoard(3, new SplashScreen('images/win.svg', "", "", playGame));
-	document.addEventListener('keydown', function(e) {
-		if (e.key == ' ' || e.key == 'ArrowLeft' || e.key == 'ArrorRight') {
-			setTimeout(function(){
-				try {
-					e.preventDefault();
-				}
-				catch(error) {}
-			}, 1500);
-		}
+	document.addEventListener('keydown', async function(e) {
+		await sleep(3000);
 	});
 	//console.info('WIN: ' + Game.points);
 };
@@ -235,15 +234,8 @@ var loseGame = function () {
 	reset = true;
 	levelsPlayed = 0;
 	Game.setBoard(3, new SplashScreen('images/loss.svg', "", "", playGame));
-	document.addEventListener('keydown', function(e) {
-		if (e.key == ' ' || e.key == 'ArrowLeft' || e.key == 'ArrorRight') {
-			setTimeout(function(){
-				try {
-					e.preventDefault();
-				}
-				catch(error) {}
-			}, 1500);
-		}
+	document.addEventListener('keydown', async function(e) {
+		await sleep(3000);
 	});
 	//console.info('LOSS: ' + Game.points);
 };
